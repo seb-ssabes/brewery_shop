@@ -6,11 +6,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Beers', beers_path %></li>
+          <li><%= link_to 'Merch', merch_path %></li>
+          <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to 'Contact', contact_path %></li>
+        </ul>
+      </nav>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <p>&copy; 2024 Brewery Shop</p>
+    </footer>
   </body>
 </html>
