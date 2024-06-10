@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-links, .nav-icons {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-image {
+  color: #fff;
+  padding: 5px;
+  width: 10%;
+}
+
+.header-menu {
+  display: inline-block;
+}
+
+.header-menu a {
+  text-decoration: none;
+
+}
+
+.header-menu a:hover {
+  text-decoration:underline;
+}
+
+.header-icon {
+}
