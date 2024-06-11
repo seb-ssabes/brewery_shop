@@ -14,3 +14,78 @@
   color: white;
   font-size: 10px;
 }
+
+.footer-info {
+  text-align: center;
+  justify-content: center;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.footer-newsletter {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction:row;
+  justify-content: center;
+  align-content: space-between;
+  align-items: center;
+}
+
+.news-form{
+  // align-items: flex-start;
+}
+
+.footer-image {
+  color: #fff;
+  padding: 5px;
+  width: 13.5%;
+  // text-align: right;
+}
+
+.footer-grid-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-grid-item {
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.news-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.footer-grid-image {
+  text-align: right;
+}
+
+.footer-icon-list {
+  display: flex;
+  list-style-type: none;
+  align-items: flex-end;
+}
+
+.footer-icon-list li {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.footer-icon-list li:last-child {
+  margin-right: 0;
+}
+
+
+.div-space-between {
+  margin: 0px 362px;
+}
