@@ -37,8 +37,19 @@
   align-items: center;
 }
 
-.news-form{
-  // align-items: flex-start;
+.footer-newsletter-inside {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-newsletter-inside p {
+  color: rgb(154,157,158);
+}
+
+
+.news-form {
+  align-self: flex-start;
+  margin: 0;
 }
 
 .footer-image {
@@ -53,10 +64,18 @@
   padding: 0;
 }
 
+.footer-grid-list li {
+  color: rgb(154,157,158);
+}
+
 .footer-grid-item {
   text-align: left;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.footer-grid-item p {
+  color: rgb(154,157,158);
 }
 
 .news-container {

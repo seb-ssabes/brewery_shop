@@ -1,13 +1,39 @@
-.header {
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.header-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+}
+
+.header-image-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.header-image {
+  color: #fff;
+  padding: 5px;
+  width: 10%;
 }
 
 .header-nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
   padding: 10px 20px;
+  align-self: center;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links, .nav-icons {
@@ -17,32 +43,28 @@
   margin: 0;
 }
 
-.header-image {
-  color: #fff;
-  padding: 5px;
-  width: 10%;
-}
-
-.header-menu {
-  display: inline-block;
+.nav-links li a {
+  margin: 0px 14px;
+  font-size: 20px;
 }
 
 .header-menu a {
   text-decoration: none;
-
+  color:rgb(88, 95, 101);
 }
 
 .header-menu a:hover {
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 .header-icon {
+  margin: 0px 14px;
+  font-size: 24px;
 }
 
 .announcement-bar {
   background-color: black;
   text-align: center;
-  padding: 10px 0;
 }
 
 .bar-message {

@@ -12,27 +12,32 @@
 
   <body>
     <div class="body-container">
-
       <div class="announcement-bar">
         <p class="bar-message">American Inspired Brewery Shop</p>
       </div>
 
-      <header class="header">
-        <img src="<%= asset_path('Brewery Logo.jpg') %>" class="header-image" alt="Header Image">
-        <nav class="header-nav">
-          <ul class="nav-links">
-            <li class="header-menu"><%= link_to 'Home', root_path %></li>
-            <li class="header-menu"><%= link_to 'Beers', beers_path %></li>
-            <li class="header-menu"><%= link_to 'Merch', merch_path %></li>
-            <li class="header-menu"><%= link_to 'About', about_path %></li>
-            <li class="header-menu"><%= link_to 'Contact', contact_path %></li>
-          </ul>
-          <ul class="nav-icons">
-            <li class="header-icon"><i class="fa-solid fa-magnifying-glass"></i></li>
-            <li class="header-icon"><i class="fa-solid fa-user"></i></li>
-            <li class="header-icon"><i class="fa-solid fa-bag-shopping"></i></li>
-          </ul>
-        </nav>
+      <header class="header-container">
+        <div class="header-header">
+          <div class="header-image-nav">
+            <img src="<%= asset_path('Brewery Logo.jpg') %>" class="header-image" alt="Header Image">
+            <nav class="header-nav">
+              <ul class="nav-links">
+                <li class="header-menu"><%= link_to 'Home', root_path %></li>
+                <li class="header-menu"><%= link_to 'Beers', beers_path %></li>
+                <li class="header-menu"><%= link_to 'Merch', merch_path %></li>
+                <li class="header-menu"><%= link_to 'About', about_path %></li>
+                <li class="header-menu"><%= link_to 'Contact', contact_path %></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-icons">
+            <ul class="nav-icons">
+              <li class="header-icon"><i class="fa-solid fa-magnifying-glass"></i></li>
+              <li class="header-icon"><i class="fa-solid fa-user"></i></li>
+              <li class="header-icon"><i class="fa-solid fa-bag-shopping"></i></li>
+            </ul>
+          </div>
+        </div>
       </header>
 
       <main class="content">
@@ -76,7 +81,9 @@
             </div>
           </div>
         </div>
-        <p class="footer-content-bottom">&copy; 2024 Brewery Shop</p>
+        <div class="div-content-bottom">
+          <p class="footer-content-bottom">&copy; 2024 Brewery Shop</p>
+        </div>
       </footer>
     </div>
   </body>
