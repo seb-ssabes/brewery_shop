@@ -42,15 +42,15 @@
   flex-direction: column;
 }
 
+.footer-newsletter-inside h2 {
+  font-size: 30px;
+}
+
 .footer-newsletter-inside p {
   color: rgb(154,157,158);
 }
 
 
-.news-form {
-  align-self: flex-start;
-  margin: 0;
-}
 
 .footer-image {
   color: #fff;
@@ -66,6 +66,8 @@
 
 .footer-grid-list li {
   color: rgb(154,157,158);
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .footer-grid-item {
@@ -76,6 +78,7 @@
 
 .footer-grid-item p {
   color: rgb(154,157,158);
+  font-size: 20px;
 }
 
 .news-container {
@@ -106,9 +109,44 @@
 
 
 .div-space-between {
-  margin: 0px 362px;
+  margin: 0px 338px;
 }
 
 .div-content-bottom {
   padding-top: 25px;
+}
+
+.new_subscriber {
+  // margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  border: 1px solid grey;
+  overflow: hidden;
+}
+
+.news-email-field {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  margin-right: 20px;
+  background-color: black;
+  color: rgb(154,157,158);
+}
+
+.news-submit-button {
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(154,157,158);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-submit-button i {
+  font-size: 20px;
+  color: rgb(154,157,158);
 }
