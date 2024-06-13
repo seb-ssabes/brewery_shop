@@ -70,7 +70,20 @@
             <div class="news-container">
               <div class="footer-newsletter-inside">
                 <h2>Subscribe to follow along</h2>
-                <p class="news-form">FORM FOR EMAIL</p>
+                <div class="news-form">
+                  <%= form_for @subscriber do |f| %>
+                    <%= f.email_field :email, placeholder: "Email" %>
+                    <%= f.submit %>
+                  <% end %>
+                </div>
+                <div class="form-notice">
+                  <% if notice %>
+                    <%= notice %>
+                  <% end  %>
+                  <% if alert %>
+                    <%= alert %>
+                  <% end %>
+                </div>
               </div>
               <div class="div-space-between">
               </div>
