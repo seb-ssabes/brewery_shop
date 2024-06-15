@@ -3,6 +3,8 @@
   color: #fff;
   text-align: center;
   padding: 10px 20px;
+  box-sizing: border-box;
+  margin-top: 3px;
 }
 
 .footer-content-bottom {
@@ -35,15 +37,13 @@
   justify-content: center;
   align-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  margin: 3px;
 }
 
 .footer-newsletter-inside {
   display: flex;
   flex-direction: column;
-}
-
-.footer-newsletter-inside h2 {
-  font-size: 30px;
 }
 
 .footer-newsletter-inside p {
@@ -86,6 +86,8 @@
   justify-content: center;
   justify-content: space-between;
   flex-direction: row;
+  box-sizing: border-box;
+  margin: 3px;
 }
 
 .footer-grid-image {
@@ -109,7 +111,7 @@
 
 
 .div-space-between {
-  margin: 0px 338px;
+  margin: 0px 375px;
 }
 
 .div-content-bottom {
@@ -124,15 +126,33 @@
   background-color: black;
   border: 1px solid grey;
   overflow: hidden;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 3px;
+  position: relative;
+}
+
+.new_subscriber:hover {
+  box-shadow: 0 0 0 1px grey
+  
 }
 
 .news-email-field {
   flex: 1;
-  padding: 10px;
+  box-sizing: border-box;
+  padding: 3px;
   border: none;
   margin-right: 20px;
   background-color: black;
   color: rgb(154,157,158);
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+
+  }
 }
 
 .news-submit-button {
@@ -144,6 +164,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .news-submit-button i {
