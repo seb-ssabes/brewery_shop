@@ -1,5 +1,7 @@
-<div class="beers-title">
-  <h2 class="h2-beers-title">On Tap</h2>
-  <div class="beers-collection">
+<div class="grid-container">
+  <div class="beer-grid">
+    <% @beers.each do |beer|%>
+      <%= render partial: 'beers/beer_card', locals: {beer: beer} %>
+    <% end  %>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="beer-card">
+  <div class="beer-image-container">
+    <%= image_tag(beer.image, alt: beer.title, class: 'beer-image') %>
+    <div class="overlay">
+      <div class="beer-info">
+        <h3 class="beer-title"><%= beer.title %></h3>
+        <p class="beer-price">€<%= beer.price %></p>
+        <%= link_to "Full View", class: "view-button" %>
+      </div>
+    </div>
+  </div>
+</div>

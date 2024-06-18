@@ -9,7 +9,7 @@ beers = [
   { title: 'Pilsner', price: 2.10, description: 'Classic pilsner with a crisp, clean taste. Perfect for a full day session.', image: 'Lager.jpg', abv: 4.5, ibu: 18, hops: "Saaz, Tettnang, Hallertau" },
   { title: 'Red Ale', price: 2.30, description: 'Bold as a sunset, with caramel sweetness and a hoppy kick—like autumn in a glass.', image: 'Red Ale.jpg', abv: 5.5, ibu: 25, hops: "Cascade, Chinook" },
   { title: 'Saison Pale Ale', price: 2.50, description: 'A farmhouse ale with fruity and spicy characteristics. The season\'s God Almighty.', image: 'Pale Ale.jpg', abv: 6.3, ibu: 35, hops: "Styrian Golding, Simcoe, Strisselspalt" },
-  { title: 'Porter', price: 2.6, description: 'Like a bear hug from a coffee-loving lumberjack: rich, roasted, with hints of chocolate bliss.', image: 'Porter.jpg', abv: 5.8, ibu: 45, hops: "East Kent Goldings, Fuggle" },
+  { title: 'Porter', price: 2.6, description: 'Like a bear hug from a coffee-loving lumberjack: rich, roasted, with hints of chocolate bliss.', image: 'Stout.jpg', abv: 5.8, ibu: 45, hops: "East Kent Goldings, Fuggle" },
   { title: 'Lager', price: 2.00, description: 'A crisp high-five on a sunny day: clean, refreshing, with a hint of grainy goodness.', image: 'Lager.jpg', abv: 4.2, ibu: 10, hops: "Saaz, Perle" }
 ]
 
