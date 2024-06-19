@@ -13,6 +13,51 @@
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // color: white;
+    border-radius: 5px;
+
+    .beer-info {
+      text-align: center;
+      transform: translateY(-70%);
+      opacity: 1;
+      transition: transform 0.6s ease;
+    }
+
+    .beer-action {
+      margin-top: 10px;
+      opacity: 1;
+      transition: transform 0.6s ease;
+      transform: translateY(70%)
+    }
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+
+    .beer-info, .beer-action {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
 }
 
 .beer-image {
@@ -31,32 +76,14 @@
   position: relative;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 85%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  border-radius: 5px;
-}
-
-.beer-card:hover .overlay {
-  opacity: 1;
-}
-
-.beer-info {
-  text-align: center;
-}
-
-.beer-title, .beer-price {
+.beer-title {
   margin: 0;
+  color: white;
+}
+
+.beer-price {
+  margin: 0;
+  color: grey;
 }
 
 .view-button {

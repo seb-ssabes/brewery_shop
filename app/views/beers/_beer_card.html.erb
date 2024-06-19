@@ -5,6 +5,8 @@
       <div class="beer-info">
         <h3 class="beer-title"><%= beer.title %></h3>
         <p class="beer-price">€<%= beer.price %></p>
+      </div>
+      <div class="beer-action">
         <%= link_to "Full View", beer_path(beer), class: "view-button" %>
       </div>
     </div>
