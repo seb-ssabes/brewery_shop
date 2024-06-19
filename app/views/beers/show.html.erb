@@ -1,0 +1,11 @@
+<h1><%= @beer.title %></h1>
+<div class="show-card-container">
+  <img src="<%= asset_path(@beer.image) %>" alt="<%= @beer.title %>" class="beer-image-show">
+  <div class="info-show">
+    <p><%= @beer.description %></p>
+    <p>Price: <%= number_to_currency(@beer.price, unit: "$", precision: 0) %></p>
+    <p>ABV: <%= @beer.abv %>%</p>
+    <p>IBU: <%= @beer.ibu %></p>
+    <p>Hops: <%= @beer.hops %></p>
+  </div>
+</div>

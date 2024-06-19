@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'merch', to: 'merch#index'
   get 'about', to: 'about#index'
   get 'contact', to: 'contact#index'
-  
+
   resources :subscribers
+  resources :beers, only: [:index, :show]
 end

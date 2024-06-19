@@ -9,20 +9,22 @@
 }
 
 .beer-card {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin: 15px;
   position: relative;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 .beer-image {
   width: 85%;
   height: auto;
   transition: transform 0.5s ease;
+  transform-origin: top;
 }
 
 .beer-card:hover .beer-image {
-  transform: scale(1.5);
+  transform: scale(1.2);
+  object-fit: cover;
 }
 
 .beer-image-container {
@@ -33,15 +35,16 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 85%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
   transition: opacity 0.5s ease;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+  border-radius: 5px;
 }
 
 .beer-card:hover .overlay {
