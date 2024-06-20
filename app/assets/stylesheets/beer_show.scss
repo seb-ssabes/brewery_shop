@@ -3,14 +3,37 @@
   flex-direction: row;
   justify-content: center;
   align-self: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.show-beer-title {
+  display: flex;
+  justify-content: left;
+  font-size: 30px;
+  margin: 10px 0px;
 }
 
 .beer-image-show {
   width: 30%;
 }
 
-.info-show {
-
+.add-button {
+  margin-top: 5px;
+  padding: 10px 40px;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
+  border: 2px solid rgb(56, 56, 56);
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
 }
 
-
+.show-beer-details {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+}

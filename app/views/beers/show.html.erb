@@ -1,11 +1,27 @@
-<h1><%= @beer.title %></h1>
-<div class="show-card-container">
-  <img src="<%= asset_path(@beer.image) %>" alt="<%= @beer.title %>" class="beer-image-show">
-  <div class="info-show">
-    <p><%= @beer.description %></p>
-    <p>Price: <%= number_to_currency(@beer.price, unit: "$", precision: 0) %></p>
-    <p>ABV: <%= @beer.abv %>%</p>
-    <p>IBU: <%= @beer.ibu %></p>
-    <p>Hops: <%= @beer.hops %></p>
+<main>
+  <div class="show-card-container">
+    <img src="<%= asset_path(@beer.image) %>" alt="<%= @beer.title %>" class="beer-image-show">
+    <div class="info-show">
+      <p class="beer-company-text">The Brewing Co.</p>
+      <div class="show-beer-title">
+        <h2><%= @beer.title %></h1>
+      </div>
+      <div class="show-beer-price">
+        <p>Price: <%= number_to_currency(@beer.price, unit: '€') %></p>
+      </div>
+      <div class="show-add-container">
+        <%= link_to "ADD TO CART",beer_path(@beer), class: "add-button" %>
+      </div>
+      <div class="show-beer-description">
+        <p><%= @beer.description %></p>
+      </div>
+      <div class="show-beer-details">
+        <p>ABV: <%= @beer.abv %>%</p>
+        <p>IBU: <%= @beer.ibu %></p>
+      </div>
+      <div class="show-hops">
+        <p>Hops: <%= @beer.hops %></p>
+      </div>
+    </div>
   </div>
-</div>
+</main>

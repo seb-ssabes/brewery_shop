@@ -19,90 +19,14 @@
         <p class="bar-message">American Inspired Brewery Shop</p>
       </div>
 
-      <header class="header-container">
-        <div class="header-header">
-          <div class="header-image-nav">
-            <img src="<%= asset_path('Brewery Logo.png') %>" class="header-image" alt="Header Image">
-            <nav class="header-nav">
-              <ul class="nav-links">
-                <li class="header-menu"><%= link_to 'Home', root_path %></li>
-                <li class="header-menu"><%= link_to 'Beers', beers_path %></li>
-                <li class="header-menu"><%= link_to 'Merch', merch_path %></li>
-                <li class="header-menu"><%= link_to 'About', about_path %></li>
-                <li class="header-menu"><%= link_to 'Contact', contact_path %></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="header-icons">
-            <ul class="nav-icons">
-              <li class="header-icon"><i class="fa-solid fa-magnifying-glass"></i></li>
-              <li class="header-icon"><i class="fa-solid fa-user"></i></li>
-              <li class="header-icon"><i class="fa-solid fa-bag-shopping"></i></li>
-            </ul>
-          </div>
-        </div>
-      </header>
+      <%= render 'layouts/header' %>
 
       <main class="content">
         <%= yield %>
       </main>
 
-      <footer class="footer">
-        <div class="footer-info">
-          <div class="footer-grid">
-            <div class="footer-grid-item">
-              <h2 class="footer-grid-item-title">Quick links</h2>
-              <ul class="footer-grid-list">
-                <li>Search</li>
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Refund Policy</li>
-              </ul>
-            </div >
-            <div class="footer-grid-item-image">
-              <div class="footer-grid-image">
-                <img src="<%= asset_path('Brewery Logo Inverted.png') %>" class="footer-image" alt="Header Image">
-              </div>
-            </div>
-            <div class="footer-grid-item">
-              <h2 class="footer-grid-item-title">American Craft Beers</h2>
-              <p>The art of aromatic beers</p>
-            </div>
-          </div>
-          <div class="footer-newsletter">
-            <div class="news-container">
-              <div class="footer-newsletter-inside">
-                <h2>Subscribe to follow along</h2>
-                <div class="news-form">
-                  <%= form_for @subscriber do |f| %>
-                    <%= f.email_field :email, placeholder: "Email", class: "news-email-field" %>
-                    <button type= "submit" class= "news-submit-button">
-                      <i class="fa fa-arrow-right"></i>
-                    </button>
-                  <% end %>
-                </div>
-                <div class="form-notice">
-                  <% if notice %>
-                    <%= notice %>
-                  <% end  %>
-                  <% if alert %>
-                    <%= alert %>
-                  <% end %>
-                </div>
-              </div>
-              <div class="div-space-between">
-              </div>
-              <ul class="footer-icon-list">
-                <li><i class="fa-brands fa-instagram"></i></li>
-                <li><i class="fa-solid fa-beer-mug-empty"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="div-content-bottom">
-          <p class="footer-content-bottom">&copy; 2024 Brewery Shop</p>
-        </div>
-      </footer>
+      <%= render 'layouts/footer' %>
+
     </div>
   </body>
 </html>

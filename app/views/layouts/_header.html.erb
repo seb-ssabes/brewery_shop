@@ -1,0 +1,23 @@
+<header class="header-container">
+  <div class="header-header">
+    <div class="header-image-nav">
+      <img src="<%= asset_path('Brewery Logo.png') %>" class="header-image" alt="Header Image">
+      <nav class="header-nav">
+        <ul class="nav-links">
+          <li class="header-menu"><%= link_to 'Home', root_path %></li>
+          <li class="header-menu"><%= link_to 'Beers', beers_path %></li>
+          <li class="header-menu"><%= link_to 'Merch', merch_path %></li>
+          <li class="header-menu"><%= link_to 'About', about_path %></li>
+          <li class="header-menu"><%= link_to 'Contact', contact_path %></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-icons">
+      <ul class="nav-icons">
+        <li class="header-icon"><i class="fa-solid fa-magnifying-glass"></i></li>
+        <li class="header-icon"><i class="fa-solid fa-user"></i></li>
+        <li class="header-icon"><i class="fa-solid fa-bag-shopping"></i></li>
+      </ul>
+    </div>
+  </div>
+</header>
