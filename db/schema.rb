@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_18_103543) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_095145) do
   create_table "beers", force: :cascade do |t|
     t.string "title"
-    t.decimal "price"
+    t.decimal "price", precision: 8, scale: 2
     t.text "description"
     t.string "image"
     t.decimal "abv"
