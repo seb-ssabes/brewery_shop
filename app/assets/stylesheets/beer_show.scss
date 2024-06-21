@@ -7,11 +7,41 @@
   margin-bottom: 40px;
 }
 
+.info-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.beer-company-text {
+  margin-bottom: -10px;
+}
+
 .show-beer-title {
   display: flex;
-  justify-content: left;
-  font-size: 30px;
-  margin: 10px 0px;
+  margin: 15px 0px;
+}
+
+.show-beer-title h2 {
+  font-size: 50px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.show-beer-price {
+  display: flex;
+}
+
+.show-beer-price p {
+  margin: 5px 0px;
+  font-size: 20px;
+}
+
+.show-tax p {
+  margin-top: 0px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-style: italic;
 }
 
 .beer-image-show {
@@ -19,16 +49,24 @@
 }
 
 .add-button {
+  display: flex;
+  justify-content: center;
   margin-top: 5px;
-  padding: 10px 40px;
+  padding: 10px 0px;
   background-color: transparent;
-  color: white;
+  color: rgb(56, 56, 56);
   text-decoration: none;
   border-radius: 2px;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
   border: 2px solid rgb(56, 56, 56);
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
+  width: 100%;
+}
+
+.add-button:hover {
+  background-color: rgb(56, 56, 56);
+  color: white;
 }
 
 .show-beer-details {

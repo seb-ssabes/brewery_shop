@@ -7,7 +7,10 @@
         <h2><%= @beer.title %></h1>
       </div>
       <div class="show-beer-price">
-        <p>Price: <%= number_to_currency(@beer.price, unit: '€') %></p>
+        <p><%= number_to_currency(@beer.price, unit: '€') %></p>
+      </div>
+      <div class="show-tax">
+        <p>Tax included. Shipping calculated at checkout.</p>
       </div>
       <div class="show-add-container">
         <%= link_to "ADD TO CART",beer_path(@beer), class: "add-button" %>
