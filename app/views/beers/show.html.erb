@@ -1,4 +1,4 @@
-<main>
+<main class="show-main">
   <div class="show-card-container">
     <img src="<%= asset_path(@beer.image) %>" alt="<%= @beer.title %>" class="beer-image-show">
     <div class="info-show">
@@ -19,11 +19,18 @@
         <p><%= @beer.description %></p>
       </div>
       <div class="show-beer-details">
-        <p>ABV: <%= @beer.abv %>%</p>
-        <p>IBU: <%= @beer.ibu %></p>
-      </div>
-      <div class="show-hops">
-        <p>Hops: <%= @beer.hops %></p>
+        <div class="details-container">
+          <div class="detail-title">ABV</div>
+          <div class="detail-content"><%= @beer.abv %></div>
+        </div>
+        <div class="details-container">
+          <div class="detail-title">IBU</div>
+          <div class="detail-content"><%= @beer.ibu %></div>
+        </div>
+        <div class="details-container">
+          <div class="detail-title">HOPS</div>
+          <div class="detail-content"><%= @beer.hops %></div>
+        </div>
       </div>
     </div>
   </div>
