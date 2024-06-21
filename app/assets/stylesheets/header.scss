@@ -39,23 +39,37 @@
 
 .nav-links, .nav-icons {
   display: flex;
+  justify-content: space-around;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+.nav-links li {
+  position: relative;
+}
+
 .nav-links li a {
-  margin: 0px 14px;
+  margin: 0px 10px;
   font-size: 20px;
+  position: relative;
 }
 
 .header-menu a {
   text-decoration: none;
-  color:rgb(88, 95, 101);
+  color:rgb(48, 50, 52);
 }
 
 .header-menu a:hover {
+  width: 100%;
   text-decoration: underline;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.header-menu.active a {
+  color: rgb(139, 147, 156);
 }
 
 .header-icon {

@@ -4,11 +4,10 @@
       <img src="<%= asset_path('Brewery Logo.png') %>" class="header-image" alt="Header Image">
       <nav class="header-nav">
         <ul class="nav-links">
-          <li class="header-menu"><%= link_to 'Home', root_path %></li>
-          <li class="header-menu"><%= link_to 'Beers', beers_path %></li>
-          <li class="header-menu"><%= link_to 'Merch', merch_path %></li>
-          <li class="header-menu"><%= link_to 'About', about_path %></li>
-          <li class="header-menu"><%= link_to 'Contact', contact_path %></li>
+          <li class="header-menu <%= 'active' if current_page?(root_path) %>"><%= link_to 'Home', root_path %></li>
+          <li class="header-menu <%= 'active' if controller_name == 'beers' %>"><%= link_to 'Beers', beers_path %></li>
+          <li class="header-menu <%= 'active' if current_page?(about_path) %>"><%= link_to 'About', about_path %></li>
+          <li class="header-menu <%= 'active' if current_page?(contact_path) %>"><%= link_to 'Contact', contact_path %></li>
         </ul>
       </nav>
     </div>
