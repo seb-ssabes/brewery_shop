@@ -1,0 +1,92 @@
+.contact-new {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: -50px 200px;
+}
+
+.contact-new-container {
+  max-width: 750px;
+  width: 80%;
+  padding: 10px;
+}
+
+.contact-title {
+  align-self: flex-start;
+
+}
+
+.contact-form {
+  // max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.field {
+  flex: 1;
+  margin-right: 10px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  font-size: 12px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  padding: 3px 5px;
+  z-index: 1;
+}
+
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgb(128,132,135);
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  position: relative;
+  z-index: 0;
+}
+
+.form-control.textarea {
+  resize: vertical;
+}
+
+.form-control.textarea::-webkit-resizer {
+  display: none;
+}
+
+.send-button {
+  margin-top: 5px;
+  padding: 10px 0px;
+  background-color: rgb(56, 56, 56);
+  color: white;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
+  border: 2px solid rgb(56, 56, 56);
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+.send-button:hover {
+  background-color: rgb(33, 33, 33);
+}
