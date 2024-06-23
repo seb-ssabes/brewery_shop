@@ -17,18 +17,18 @@
         <div class="form-row">
           <div class="field">
             <%= form.label :name, class: "form-label" %>
-            <%= form.text_field :name, class: "form-control", required: true %>
+            <%= form.text_field :name, class: "form-control", presence: true %>
           </div>
 
           <div class="field">
             <%= form.label :email, class: "form-label" %>
-            <%= form.email_field :email, class: "form-control", required: true %>
+            <%= form.email_field :email, class: "form-control", presence: true %>
           </div>
         </div>
 
         <div class="field">
           <%= form.label :comment, class: "form-label" %>
-          <%= form.text_area :comment, class: "form-control textarea", required: true %>
+          <%= form.text_area :comment, class: "form-control textarea", presence: true %>
         </div>
 
         <div class="actions">
