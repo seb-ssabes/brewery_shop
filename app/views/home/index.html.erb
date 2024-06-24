@@ -1,4 +1,5 @@
 <div class="grid-container">
+  <h2 class="title-tap">On Tap</h2>
   <div class="beer-grid">
     <% @beers.each do |beer|%>
       <%= render partial: 'beers/beer_card', locals: {beer: beer} %>

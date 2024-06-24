@@ -11,15 +11,17 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 30px;
-  margin-bottom: 40px;
   max-width: 1000px;
-  width: 80%;
+  width: 100%;
 }
 
 .beer-image-show {
   flex: 1;
   width: 30%;
   max-width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
 }
 
 .info-show {
