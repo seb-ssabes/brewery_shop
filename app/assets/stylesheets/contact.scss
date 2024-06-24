@@ -1,20 +1,25 @@
-.contact-new {
+.content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: -50px 200px;
+  align-items: flex-start;
 }
 
 .contact-new-container {
   max-width: 750px;
   width: 80%;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .contact-title {
+  margin-top: 0px;
   align-self: flex-start;
-
+  font-size: 45px;
+  font-weight: 300;
 }
 
 .contact-form {
@@ -31,31 +36,30 @@
   flex: 1;
   margin-right: 10px;
   position: relative;
-  margin-bottom: 20px;
-}
-
-.form-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 12px;
-  color: #999;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  padding: 0px 5px;
+  margin-bottom: 15px;
 }
 
 .form-control {
   width: 100%;
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 1px solid rgb(109, 109, 109);
   border-radius: 3px;
   box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid rgb(0, 0, 0);
+  }
+}
+
+.form-control:hover {
+  box-shadow: 0 0 0 1px rgb(109, 109, 109);
 }
 
 .form-control.textarea {
   resize: vertical;
-  min-height: 150px; /* Adjust height as needed */
+  min-height: 115px;
 }
 
 .form-control.textarea::-webkit-resizer {
@@ -64,17 +68,22 @@
 
 .send-button {
   margin-top: 5px;
-  padding: 10px 0px;
-  background-color: rgb(56, 56, 56);
+  padding: 10px 30px;
+  background-color: rgb(76, 76, 76);
   color: white;
   text-decoration: none;
   border-radius: 2px;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
-  border: 2px solid rgb(56, 56, 56);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s ease-out, background-color 0.5s ease-out;
+  border: 2px solid rgb(76, 76, 76);
   font-family: "Lato", sans-serif;
   font-weight: 400;
 }
 
 .send-button:hover {
-  background-color: rgb(33, 33, 33);
+  background-color: rgb(23, 23, 23);
+  border: 2px solid rgb(23, 23, 23)
+}
+
+.contact-info {
+  margin-top: 70px;
 }

@@ -1,47 +1,43 @@
-<div class="contact-new">
-  <div class="contact-new-container">
-    <h2 class="contact-title">Contact Us</h2>
-    <div class="contact-form">
-      <%= form_with(model: @contact, local: true) do |form| %>
-        <% if @contact.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this message from being sent:</h2>
-            <ul>
-              <% @contact.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+<div class="contact-new-container">
+  <h2 class="contact-title">Contact Us</h2>
+  <div class="contact-form">
+    <%= form_with(model: @contact, local: true) do |form| %>
+      <% if @contact.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this message from being sent:</h2>
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-        <div class="form-row">
-          <div class="field">
-            <%= form.label :name, class: "form-label" %>
-            <%= form.text_field :name, class: "form-control", presence: true %>
-          </div>
-
-          <div class="field">
-            <%= form.label :email, class: "form-label" %>
-            <%= form.email_field :email, class: "form-control", presence: true %>
-          </div>
+      <div class="form-row">
+        <div class="field">
+          <%= form.text_field :name, class: "form-control", placeholder: "Name", presence: true %>
         </div>
 
         <div class="field">
-          <%= form.label :comment, class: "form-label" %>
-          <%= form.text_area :comment, class: "form-control textarea", presence: true %>
+          <%= form.email_field :email, class: "form-control", placeholder: "Email", presence: true %>
         </div>
+      </div>
 
-        <div class="actions">
-          <%= form.submit "SEND", class: "send-button" %>
-        </div>
-      <% end  %>
+      <div class="field">
+        <%= form.text_area :comment, class: "form-control textarea", placeholder: "Comment", presence: true %>
+      </div>
 
-    </div>
-    <div class="contact-info">
-      <h3>The Brewing Company</p>
-      <p>123 Keg Alley</p>
-      <p>Barleytown</p>
-      <p>IPA1060</p>
-      <p>Hopsburg</p>
-  </div>  </div>
+      <div class="actions">
+        <%= form.submit "SEND", class: "send-button" %>
+      </div>
+    <% end  %>
+
+  </div>
+  <div class="contact-info">
+    <h3>The Brewing Company</h3>
+    <p>123 Keg Alley</p>
+    <p>Barleytown</p>
+    <p>IPA1060</p>
+    <p>Hopsburg</p>
+  </div>
 </div>
