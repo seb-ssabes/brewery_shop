@@ -1,0 +1,40 @@
+.content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-container {
+  max-width: 750px;
+  width: 80%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.contact-title {
+  margin-top: 0px;
+  align-self: flex-start;
+  font-size: 45px;
+  font-weight: 300;
+}
+
+.about-us-text {
+  margin: 0 auto;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  font-style: normal;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+}
