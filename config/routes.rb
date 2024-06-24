@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'beers', to: 'beers#index'
   get 'about', to: 'about#index'
-  get 'contact', to: 'contact#new'
+  get 'contact', to: 'contacts#new'
 end
