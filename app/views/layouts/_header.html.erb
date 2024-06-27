@@ -15,7 +15,11 @@
       <ul class="nav-icons">
         <li class="header-icon"><i class="fa-solid fa-magnifying-glass"></i></li>
         <li class="header-icon"><i class="fa-solid fa-user"></i></li>
-        <li class="header-icon"><i class="fa-solid fa-bag-shopping"></i></li>
+        <li class="header-icon">
+          <%= link_to cart_path do %>
+            <i class="fa-solid fa-bag-shopping"></i>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

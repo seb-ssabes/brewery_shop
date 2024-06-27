@@ -1,2 +1,31 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1>Your Shopping Cart</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.cart_items.each do |item| %>
+      <tr>
+        <td><%= item.product.title %></td>
+        <td>
+          <%= form_for(item, url: cart_item_path(item)) do |f| %>
+            <%= f.number_field :quantity, min: 1 %>
+            <%= f.submit 'Update' %>
+          <% end %>
+        </td>
+        <td><%= item.product.price %></td>
+        <td><%= item.total_price %></td>
+        <td><%= link_to 'Remove', cart_item_path(item), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Total: <%= @cart.total_price %></h2>
