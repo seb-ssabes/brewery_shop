@@ -37,6 +37,8 @@
   align-items: center;
 }
 
+
+
 .nav-links, .nav-icons {
   display: flex;
   justify-content: space-around;
@@ -75,6 +77,10 @@
 .header-icon {
   margin: 0px 14px;
   font-size: 24px;
+}
+
+.header-icon i.fa-solid {
+  color: black !important;
 }
 
 .announcement-bar {
