@@ -33,7 +33,7 @@ class CartItemsController < ApplicationController
   end
 
   def set_cart_item
-  @cart_item = @cart.cart_items.find(params[:id])
+    @cart_item = @cart.cart_items.find(params[:id])
   end
 
   def cart_item_params

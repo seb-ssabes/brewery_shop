@@ -70,3 +70,6 @@ end
 gem "sassc-rails"
 
 gem 'font-awesome-sass', '~> 6.0'
+
+gem 'devise'
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :subscribers
   resources :beers, only: [:index, :show]
   resources :contacts, only: [:new, :create]

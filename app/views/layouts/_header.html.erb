@@ -16,7 +16,7 @@
         <li class="header-icon"><i class="fa-solid fa-magnifying-glass"></i></li>
         <li class="header-icon"><i class="fa-solid fa-user"></i></li>
         <li class="header-icon">
-          <%= link_to cart_path do %>
+          <%= link_to cart_path(current_cart) do %>
             <i class="fa-solid fa-bag-shopping"></i>
           <% end %>
         </li>
