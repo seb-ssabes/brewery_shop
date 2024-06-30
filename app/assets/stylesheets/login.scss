@@ -1,0 +1,90 @@
+.login-title {
+  margin-top: 10px;
+  align-self: center;
+  font-size: 45px;
+  font-weight: 300;
+}
+
+.login-form {
+  margin: 25px auto;
+  max-width: 750px;
+  width: 80%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-field {
+  margin-right: 5px;
+  position: relative;
+}
+
+#email-field {
+  margin-bottom: 15px;
+}
+
+.new_user {
+  width: 100%;
+  max-width: 400px;
+}
+
+.signin-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-form-control {
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid rgb(109, 109, 109);
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid rgb(0, 0, 0);
+  }
+}
+
+.login-form-control:hover {
+  box-shadow: 0 0 0 1px rgb(109, 109, 109);
+}
+
+.signin-button {
+  margin-top: 50px;
+  padding: 10px 30px;
+  background-color: rgb(76, 76, 76);
+  color: white;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s ease-out, background-color 0.5s ease-out;
+  border: 2px solid rgb(76, 76, 76);
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.signin-button:hover {
+  background-color: rgb(23, 23, 23);
+  border: 2px solid rgb(23, 23, 23)
+}
+
+.pass-forgot{
+  text-decoration: underline;
+  color: #303234;
+}
+
+.signup-link {
+  text-decoration: underline;
+  color: #303234;
+  margin-top: 15px;
+}
