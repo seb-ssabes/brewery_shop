@@ -1,9 +1,12 @@
 class CartItem < ApplicationRecord
   belongs_to :cart
-  belongs_to :product
-  validates :quantity, numericality: {greater_than_or_equal_to: 1 }
+  belongs_to :beer
+
+  validates :quantity, numericality: { only_integer: true, greater_than: 0 }
+  validates :beer_id, presence: true
+  validates :cart_id, presence: true
 
   def total_price
-    product.price * quantity
+    beer.price * quantity
   end
 end

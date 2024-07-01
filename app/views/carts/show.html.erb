@@ -13,14 +13,14 @@
   <tbody>
     <% @cart.cart_items.each do |item| %>
       <tr>
-        <td><%= item.product.title %></td>
+        <td><%= item.beer.title %></td>
         <td>
           <%= form_for(item, url: cart_item_path(item)) do |f| %>
             <%= f.number_field :quantity, min: 1 %>
             <%= f.submit 'Update' %>
           <% end %>
         </td>
-        <td><%= item.product.price %></td>
+        <td><%= item.beer.price %></td>
         <td><%= item.total_price %></td>
         <td><%= link_to 'Remove', cart_item_path(item), method: :delete %></td>
       </tr>

@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :beers, only: [:index, :show] do
+    post 'add_to_cart', on: :member
+  end
+
   resources :subscribers
-  resources :beers, only: [:index, :show]
   resources :contacts, only: [:new, :create]
-  resources :products, only: [:index, :show]
   resource :cart, only: [:show]
   resources :cart_items, only: [:create, :update, :destroy]
-
 
   root 'home#index'
   get 'beers', to: 'beers#index'
