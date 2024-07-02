@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
 
   def update
     if @cart_item.update(cart_item_params)
-      redirect_to cart_path(@cart), noticUnae: 'Beer was updated'
+      redirect_to cart_path(@cart), notice: 'Beer was updated'
     else
       redirect_to cart_path(@cart), alert: 'Unable to update Beer'
     end

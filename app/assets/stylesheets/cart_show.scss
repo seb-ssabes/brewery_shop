@@ -72,9 +72,38 @@
   font-weight: normal;
 }
 
+.quantity-input {
+  padding: 5px;
+  border: 2px solid rgb(179, 179, 179);
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 15%;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.quantity-update-button {
+  padding: 7px 10px;
+  border: 2px solid rgb(179, 179, 179);
+  background-color: #ffffff;
+  color: rgb(179, 179, 179);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
+}
+
+.quantity-update-button:hover {
+  background-color: rgb(110, 110, 110);
+  border: 2px solid rgb(110, 110, 110);
+  color: white;
+}
+
 .cart-item-price {
   display: flex;
-  margin: 20px 10px;
+  margin: 20px 0px;
   align-items: flex-end;
   justify-content: flex-start;
   text-align: right;
