@@ -12,16 +12,18 @@
         <div class="cart-item-info">
           <h3 class="cart-item-title"><%= item.beer.title %></h3>
           <div class="cart-item-quantity">
-            <%= form_for(item, url: cart_item_path(item)) do |f| %>
-              <%= f.number_field :quantity, min: 1, class: "quantity-input"%>
+            <%= form_for(item, url: cart_item_path(item), method: :patch, html: { class: "quantity-form" }) do |f| %>
+              <%= f.number_field :quantity, min: 1, value: item.quantity, class: "quantity-input" %>
               <%= f.submit 'Update', class: "quantity-update-button" %>
             <% end %>
+            <%= button_to cart_item_path(item), method: :delete, class: "cart-bin" do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
           </div>
-          <div class="cart-item-remove"><%= link_to 'Remove', cart_item_path(item), method: :delete %></div>
         </div>
         <div class="cart-item-price"><%= number_to_currency(item.total_price, unit: '€') %></div>
       </div>
     <% end %>
   </div>
-  <h2>Total: <%= @cart.total_price %></h2>
+  <h2>Total: <%= number_to_currency(@cart.total_price, unit: '€') %></h2>
 </div>
