@@ -1,31 +1,27 @@
-<h1>Your Shopping Cart</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Total</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="cart-container">
+  <h2 class="title-cart">Shopping Cart</h2>
+  <div class="price-title">Price</div>
+  <div class="cart-items-column">
     <% @cart.cart_items.each do |item| %>
-      <tr>
-        <td><%= item.beer.title %></td>
-        <td>
-          <%= form_for(item, url: cart_item_path(item)) do |f| %>
-            <%= f.number_field :quantity, min: 1 %>
-            <%= f.submit 'Update' %>
+      <div class="cart-item-card">
+        <div class="cart-item-image">
+          <%= link_to beer_path(item.beer) do %>
+            <%= image_tag(item.beer.image) %>
           <% end %>
-        </td>
-        <td><%= item.beer.price %></td>
-        <td><%= item.total_price %></td>
-        <td><%= link_to 'Remove', cart_item_path(item), method: :delete %></td>
-      </tr>
+        </div>
+        <div class="cart-item-info">
+          <h3 class="cart-item-title"><%= item.beer.title %></h3>
+          <div class="cart-item-quantity">
+            <%= form_for(item, url: cart_item_path(item)) do |f| %>
+              <%= f.number_field :quantity, min: 1 %>
+              <%= f.submit 'Update' %>
+            <% end %>
+          </div>
+          <div class="cart-item-remove"><%= link_to 'Remove', cart_item_path(item), method: :delete %></div>
+        </div>
+        <div class="cart-item-price"><%= number_to_currency(item.total_price, unit: '€') %></div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<h2>Total: <%= @cart.total_price %></h2>
+  </div>
+  <h2>Total: <%= @cart.total_price %></h2>
+</div>
