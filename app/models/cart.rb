@@ -21,4 +21,8 @@ class Cart < ApplicationRecord
   def total_units
     cart_items.sum(:quantity)
   end
+
+  def total_beer_types
+    cart_items.select(:beer_id).distinct.count
+  end
 end

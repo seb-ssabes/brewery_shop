@@ -18,4 +18,4 @@ application.load(definitionsFromContext(context))
 window.Stimulus = application
 export { application }
 
-import "./controllers/cart"
+import "/cart"

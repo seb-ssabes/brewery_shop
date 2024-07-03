@@ -26,8 +26,11 @@
           <% end %>
         </li>
         <li class="header-icon">
-          <%= link_to cart_path(current_cart) do %>
+          <%= link_to cart_path(current_cart), class: "header-icon-a" do %>
             <i class="fa-solid fa-bag-shopping"></i>
+          <% end %>
+          <% if @current_cart.total_beer_types > 0 %>
+            <span class="beer-types-count"><%= @current_cart.total_beer_types %></span>
           <% end %>
         </li>
       </ul>

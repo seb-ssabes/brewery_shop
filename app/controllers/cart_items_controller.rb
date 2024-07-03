@@ -6,11 +6,16 @@ class CartItemsController < ApplicationController
     beer = Beer.find(params[:beer_id])
     @cart_item = @cart.add_beer(beer)
 
-    if @cart_item.save
-      redirect_to cart_path(@cart), notice: 'Beer was added to your bag.'
-    else
-      redirect_to beers_path, alert: 'Unable to add Beer to bag' + @cart_item.errors.full_messages.join(', ')
+    respond_to do |format|
+      if @cart_item.save
+        format.html { redirect_to @cart_item.cart }
+        format.js
+      else
+        format.html { redirect_to beers_path, alert: 'Unable to add Beer to bag' + @cart_item.errors.full_messages.join(', ') }
+        format.js
+      end
     end
+
   end
 
   def update
@@ -23,7 +28,7 @@ class CartItemsController < ApplicationController
 
   def destroy
     @cart_item.destroy
-    redirect_to cart_path(@cart), notice: 'Beer was removed'
+    redirect_to cart_path(@cart)
   end
 
   private
