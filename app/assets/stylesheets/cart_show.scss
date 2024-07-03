@@ -1,8 +1,34 @@
 .cart-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
+}
+
+.cart-left-column,
+.cart-right-column {
+  display: flex;
   flex-direction: column;
+}
+
+.cart-left-column {
+  flex: 8;
+}
+
+.cart-right-column {
+  flex: 2;
+  padding: 10px;
+  display: flex;
+  margin: 70px 5px;
+  box-shadow: 0 0 0 2px rgb(179, 179, 179);
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title-cart {
@@ -36,7 +62,6 @@
   align-items: flex-start;
   padding: 25px 0px;
   width: 70%;
-  height: 70%;
 }
 
 .cart-item-card > div {
@@ -80,8 +105,7 @@
 
 .quantity-form {
   display: flex;
-  align-items: center;
-  margin-right: 10px;
+  width: 50%;
 }
 
 .quantity-input {
@@ -90,7 +114,7 @@
   border-radius: 4px;
   font-size: 16px;
   margin-right: 10px;
-  width: 22%;
+  width: 26%;
 
   &:focus {
     outline: none;
@@ -106,7 +130,6 @@
   border-radius: 4px;
   cursor: pointer;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
-  margin-right: 10px;
 }
 
 .quantity-update-button:hover {
@@ -142,4 +165,41 @@
   width: 33.33%;
   font-size: 25px;
   font-weight: bold;
+}
+
+.total-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.total-price p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-button {
+  margin: 10px;
+  padding: 7px 10px;
+  border: 2px solid rgb(179, 179, 179);
+  background-color: #ffffff;
+  color: rgb(179, 179, 179);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
+}
+
+.checkout-button:hover {
+  border: 2px solid rgb(139, 139, 139);
+  color: rgb(139, 139, 139);
 }
