@@ -33,7 +33,7 @@
     </div>
     <div class="cart-right-column">
       <div class="total-price"><p>Total (<%= @cart.total_units %> units): <%= number_to_currency(@cart.total_price, unit: '€') %></p></div>
-      <%= button_to "CHECKOUT", cart_item_path("item"), class: "checkout-button" %>
+      <%= link_to "CHECKOUT", new_order_path, class: "checkout-button" %>
     </div>
   <% else %>
     <div class="empty-cart">

@@ -1,0 +1,25 @@
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.checkout-form {
+  width: 60%;
+}
+
+.cart-summary {
+  width: 35%;
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+.cart-summary ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-summary ul li {
+  margin-bottom: 10px;
+}

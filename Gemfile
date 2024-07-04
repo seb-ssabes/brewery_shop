@@ -74,3 +74,5 @@ gem 'font-awesome-sass', '~> 6.0'
 gem 'devise'
 
 gem 'webpacker', '~> 5.4'
+
+gem 'country_select'
