@@ -8,11 +8,11 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if @cart_item.save
-        format.html { redirect_to @cart_item.cart }
-        format.js
+        format.turbo_stream
+        format.html {redirect_to request.referrer}
       else
-        format.html { redirect_to beers_path, alert: 'Unable to add Beer to bag' + @cart_item.errors.full_messages.join(', ') }
-        format.js
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("cart", partial: "carts/cart", locals: { cart: current_cart }) }
+        format.html { redirect_to request.referrer, alert: 'Unable to add beer to cart.' }
       end
     end
 

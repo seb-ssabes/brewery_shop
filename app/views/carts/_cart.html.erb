@@ -1,0 +1,10 @@
+<div id="cart">
+  <h2>Your Cart</h2>
+  <ul>
+    <% @cart.cart_items.each do |item| %>
+      <li><%= item.beer.title %> - <%= item.quantity %></li>
+    <% end %>
+  </ul>
+  <p>Total items: <%= @cart.total_quantity %></p>
+  <p>Total price: <%= number_to_currency(@cart.total_price) %></p>
+</div>
