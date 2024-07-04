@@ -13,7 +13,7 @@
         <p>Tax included. Shipping calculated at checkout.</p>
       </div>
       <div class="show-add-container">
-        <%= button_to "ADD TO CART", cart_items_path(beer_id: @beer.id), method: :post, class: "add-button", data: { turbo: "true" }%>
+        <%= button_to "ADD TO CRATE", cart_items_path(beer_id: @beer.id), method: :post, class: "add-button", data: { turbo: "true" }%>
       </div>
       <div class="show-beer-description">
         <p><%= @beer.description %></p>
