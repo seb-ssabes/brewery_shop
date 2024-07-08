@@ -1,30 +1,43 @@
 <div class="checkout-container">
-  <div class="checkout-form">
-    <h2>Personal Details</h2>
-    <%= form_for @order do |f| %>
-      <%= f.text_field :name, required: true, placeholder: "Name" %>
-      <%= f.text_field :last_name, required: true, placeholder: "Last name" %>
-      <%= f.email_field :email, required: true, placeholder: "Email" %>
-      <%= f.telephone_field :phone, required: true, placeholder: "Mobile phone" %>
-      <%= f.country_select :country, required: true, include_blank: 'Country' %>
-      <%= f.text_area :address, required: true, placeholder: "Address" %>
-      <%= f.text_area :city, required: true, placeholder: "City" %>
-      <%= f.text_area :region, required: true, placeholder: "Region" %>
-      <%= f.text_area :post_code, required: true, placeholder: "Postal code" %>
-
-      <%= f.submit 'Place Order' %>
-    <% end %>
-  </div>
-
-  <div class="cart-summary">
-    <h2>Your Cart</h2>
-    <ul>
-      <% @order_items.each do |item| %>
-        <li>
-          <%= item.beer.title %> - <%= item.quantity %> x <%= item.price %>
-        </li>
+  <div class="banner-checkout">
+    <div class="hidden-div"></div>
+    <div class="image-container"><img src="<%= asset_path('Brewery Logo.png') %>" class="checkout-image"></div>
+    <div class="checkout-shopping">
+      <%= link_to cart_path(current_cart), class: "checkout-icon" do %>
+        <i class="fa-solid fa-bag-shopping"></i>
       <% end %>
-    </ul>
-    <h3>Total: <%= @order.total_price %></h3>
+    </div>
   </div>
+
+  <div class="checkout-main">
+    <div class="checkout-form">
+      <h2>Personal Details</h2>
+      <%= form_for @order do |f| %>
+        <%= f.text_field :name, required: true, placeholder: "Name" %>
+        <%= f.text_field :last_name, required: true, placeholder: "Last name" %>
+        <%= f.email_field :email, required: true, placeholder: "Email" %>
+        <%= f.telephone_field :phone, required: true, placeholder: "Mobile phone" %>
+        <%= f.country_select :country, required: true, include_blank: 'Country' %>
+        <%= f.text_area :address, required: true, placeholder: "Address" %>
+        <%= f.text_area :city, required: true, placeholder: "City" %>
+        <%= f.text_area :region, required: true, placeholder: "Region" %>
+        <%= f.text_area :post_code, required: true, placeholder: "Postal code" %>
+
+        <%= f.submit 'Place Order' %>
+      <% end %>
+    </div>
+
+    <div class="cart-summary">
+      <h2>Your Cart</h2>
+      <ul>
+        <% @order_items.each do |item| %>
+          <li>
+            <%= item.beer.title %> - <%= item.quantity %> x <%= item.price %>
+          </li>
+        <% end %>
+      </ul>
+      <h3>Total: <%= @order.total_price %></h3>
+    </div>
+  </div>
+  
 </div>
