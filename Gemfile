@@ -76,3 +76,5 @@ gem 'devise'
 gem 'webpacker', '~> 5.4'
 
 gem 'country_select'
+
+gem 'bootstrap', '~> 5.1.3'

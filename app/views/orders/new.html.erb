@@ -10,34 +10,73 @@
   </div>
 
   <div class="checkout-main">
-    <div class="checkout-form">
-      <h2>Personal Details</h2>
-      <%= form_for @order do |f| %>
-        <%= f.text_field :name, required: true, placeholder: "Name" %>
-        <%= f.text_field :last_name, required: true, placeholder: "Last name" %>
-        <%= f.email_field :email, required: true, placeholder: "Email" %>
-        <%= f.telephone_field :phone, required: true, placeholder: "Mobile phone" %>
-        <%= f.country_select :country, required: true, include_blank: 'Country' %>
-        <%= f.text_area :address, required: true, placeholder: "Address" %>
-        <%= f.text_area :city, required: true, placeholder: "City" %>
-        <%= f.text_area :region, required: true, placeholder: "Region" %>
-        <%= f.text_area :post_code, required: true, placeholder: "Postal code" %>
+    <div class="checkout-left">
+      <div class="checkout-form">
+        <h2>Delivery</h2>
+        <%= form_for @order, local: true, class: "row g-3" do |f| %>
+          <div class="form-group">
+            <div class="col-md-12">
+              <%= f.country_select :country, { prompt: "Country" }, { class: "form-control", required: true } %>
+            </div>
+          </div>
 
-        <%= f.submit 'Place Order' %>
-      <% end %>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <%= f.text_field :name, class: "form-control", required: true, placeholder: "Name" %>
+            </div>
+            <div class="col-md-6">
+              <%= f.text_field :last_name, class: "form-control", required: true, placeholder: "Last name" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-12">
+              <%= f.text_field :address, class: "form-control", required: true, placeholder: "Address" %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6">
+              <%= f.email_field :email, class: "form-control", required: true, placeholder: "Email" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= f.telephone_field :phone, class: "form-control", required: true, placeholder: "Mobile phone (optional)" %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-4">
+              <%= f.text_field :city, class: "form-control", required: true, placeholder: "City" %>
+            </div>
+
+            <div class="col-md-4">
+              <%= f.text_field :region, class: "form-control", required: true, placeholder: "Region" %>
+            </div>
+
+            <div class="col-md-4">
+              <%= f.text_field :post_code, class: "form-control", required: true, placeholder: "Postal code" %>
+            </div>
+          </div>
+
+          <%= f.submit 'Place Order', class: "place-order-buttom" %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="cart-summary">
-      <h2>Your Cart</h2>
-      <ul>
-        <% @order_items.each do |item| %>
-          <li>
-            <%= item.beer.title %> - <%= item.quantity %> x <%= item.price %>
-          </li>
-        <% end %>
-      </ul>
-      <h3>Total: <%= @order.total_price %></h3>
+    <div class="checkout-right">
+      <div class="checout-summary">
+        <h2>Your Cart</h2>
+        <ul>
+          <% @order_items.each do |item| %>
+            <li>
+              <%= item.beer.title %> - <%= item.quantity %> x <%= item.price %>
+            </li>
+          <% end %>
+        </ul>
+        <h3>Total: <%= @order.total_price %></h3>
+      </div>
     </div>
   </div>
-  
+
 </div>

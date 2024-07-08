@@ -1,3 +1,5 @@
+@import 'bootstrap';
+
 .checkout-container {
   width: 100%;
   display: flex;
@@ -51,18 +53,27 @@
   height: 100%;
 }
 
-.checkout-form, .cart-summary {
-  display: flex;
+.checkout-left, .checkout-right {
   width: 100%;
-  padding: 20px;
-  flex-grow: 1;
+  padding: 40px;
 }
 
-.cart-summary {
+.checkout-left {
+  display: grid;
+}
+
+.checkout-right {
+  display: flex;
   border-left: 1px solid #ccc;
   flex-direction: column;
-  justify-content: space-between;
   background-color: rgb(244, 244, 244);
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80%;
+}
+
+.checkout-form {
+  justify-self: flex-end;
 }
 
 .cart-summary ul {
@@ -72,4 +83,33 @@
 
 .cart-summary ul li {
   margin-bottom: 10px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+  }
+}
+
+.place-order-buttom {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 10px 0px;
+  background-color: rgb(117, 117, 117);
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  width: 100%;
+}
+
+.place-order-buttom:hover {
+  background-color: rgb(56, 56, 56);
+  color: white;
 }
