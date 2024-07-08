@@ -66,7 +66,7 @@
   display: flex;
   border-left: 1px solid #ccc;
   flex-direction: column;
-  background-color: rgb(244, 244, 244);
+  background-color: rgb(248, 248, 248);
   justify-content: flex-start;
   align-items: flex-start;
   width: 80%;
@@ -76,13 +76,11 @@
   justify-self: flex-end;
 }
 
-.cart-summary ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.cart-summary ul li {
-  margin-bottom: 10px;
+.checkout-summary {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
 }
 
 .form-control {
@@ -107,9 +105,55 @@
   font-family: "Lato", sans-serif;
   font-weight: 400;
   width: 100%;
+  border: none;
 }
 
 .place-order-buttom:hover {
   background-color: rgb(56, 56, 56);
   color: white;
+}
+
+.order-beer-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 65%;
+  margin-bottom: 20px;
+}
+
+.order-beer-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 80px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.order-beer-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 3px;
+  object-fit: cover;
+  display: block;
+}
+
+.order-beer-title, .order-beer-price {
+  display:flex;
+  text-align: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.checkout-total h3 {
+  margin: 0;
 }

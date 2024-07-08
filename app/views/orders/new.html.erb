@@ -1,4 +1,5 @@
 <div class="checkout-container">
+<%= stylesheet_link_tag 'checkout', 'data-turbo-track': 'reload' %>
   <div class="banner-checkout">
     <div class="hidden-div"></div>
     <div class="image-container"><img src="<%= asset_path('Brewery Logo.png') %>" class="checkout-image"></div>
@@ -65,16 +66,19 @@
     </div>
 
     <div class="checkout-right">
-      <div class="checout-summary">
-        <h2>Your Cart</h2>
-        <ul>
-          <% @order_items.each do |item| %>
-            <li>
-              <%= item.beer.title %> - <%= item.quantity %> x <%= item.price %>
-            </li>
-          <% end %>
-        </ul>
-        <h3>Total: <%= @order.total_price %></h3>
+      <div class="checkout-summary">
+
+        <% @order_items.each do |item| %>
+          <div class="order-beer-card">
+            <div class="order-beer-image"><%= image_tag(item.beer.image) %></div>
+            <div class="order-beer-title">Qty <%= item.quantity %> - <%= item.beer.title %></div>
+            <div class="order-beer-price"><%= number_to_currency(item.total_price, unit: '€') %></div>
+          </div>
+        <% end %>
+        <div class="checkout-total">
+          <h3>Total</h3>
+          <h3><%= number_to_currency(@order.total_price, unit: '€') %></h3>
+        </div>
       </div>
     </div>
   </div>
