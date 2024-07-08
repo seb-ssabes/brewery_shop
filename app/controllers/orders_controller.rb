@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  layout 'checkout', only:[:new]
+  
   def new
     @order = Order.new
     @order_items = current_cart.cart_items.map do |item|
