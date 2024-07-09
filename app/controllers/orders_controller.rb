@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
   layout 'checkout', only:[:new]
-  
+
   def new
     @order = Order.new
+    @shipping_methods = ShippingMethod.all
     @order_items = current_cart.cart_items.map do |item|
       @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
     end
@@ -10,12 +11,14 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
+    @order.shipping_method = ShippingMethod.find(params[:shipping_method_id])
     @order.total_price = calculate_total_price
 
     if @order.save
       session[:cart_id] = nil
       redirect_to @order, notice: 'Order was succesfullt created'
     else
+      @shipping_methods = ShippingMethod.all
       render :new
     end
   end

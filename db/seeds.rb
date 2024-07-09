@@ -1,4 +1,5 @@
 Beer.destroy_all
+ShippingMethod.destroy_all
 
 beers = [
   { title: 'Autumm Ember - Amber Ale', price: 2.30 , description: 'Autumn Ember Ale balances malt and hop flavors like a tightrope walker with a beer stein. With caramel, toasty, and biscuity malt notes, it\'s like a fall festival in your mouth. Pouring a rich amber hue, it looks as good as it tastes. Enjoy the smooth caramel and toasted bread flavors, perfectly balanced by a hop bitterness that\'s just the right amount of sassy. Whether you\'re kicking back or pairing it with a hearty meal, this ale is the life of the party for your taste buds.', image: 'Amber Ale.jpg', abv: 6.4, ibu: 30, hops: "Horizon, Cascade and Centennial" },
@@ -17,4 +18,11 @@ beers.each do |beer|
   Beer.create!(beer)
 end
 
-puts "Seeded #{Beer.count} beers."
+ShippingMethod.create([
+  { name: 'Standard Shipping - €5.00', price: 5.00 },
+  { name: 'Express Shipping - €10.00', price: 10.00 },
+  { name: 'Overnight Shipping - €20.00', price: 20.00 },
+  { name: 'Barleytown Shipping (local) - €2.00', price: 2.00 },
+])
+
+puts "Seeded #{Beer.count} beers and #{ShippingMethod.count} shipping methods."

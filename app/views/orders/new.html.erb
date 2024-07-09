@@ -71,6 +71,9 @@
         </div>
         <div class="mb-5">
           <h3 class="mb-2">Shipping method</h3>
+          <%= form_for @order, local: true do |f| %>
+            <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: ""}, { class: 'form-control', id: 'shipping-method-select' } %>
+          <% end %>
         </div>
 
         <div class="mb-5">

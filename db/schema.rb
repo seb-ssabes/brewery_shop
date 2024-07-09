@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_104704) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_09_091953) do
   create_table "beers", force: :cascade do |t|
     t.string "title"
     t.decimal "price", precision: 8, scale: 2
@@ -75,6 +75,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_104704) do
     t.string "city"
     t.string "post_code"
     t.string "region"
+    t.integer "shipping_method_id", null: false
+    t.index ["shipping_method_id"], name: "index_orders_on_shipping_method_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -83,6 +85,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_104704) do
     t.decimal "price", precision: 8, scale: 2
     t.integer "stock"
     t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_methods", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -112,5 +121,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_104704) do
   add_foreign_key "carts", "users"
   add_foreign_key "order_items", "beers"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "shipping_methods"
   add_foreign_key "orders", "users"
 end
