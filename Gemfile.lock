@@ -334,7 +334,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
-  webpacker (~> 5.4)
+  webpacker (~> 5.4, >= 5.4.4)
 
 RUBY VERSION
    ruby 3.3.1p55

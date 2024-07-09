@@ -72,7 +72,7 @@
         <div class="mb-5">
           <h3 class="mb-2">Shipping method</h3>
           <%= form_for @order, local: true do |f| %>
-            <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: ""}, { class: 'form-control', id: 'shipping-method-select' } %>
+            <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: ""}, { class: 'form-control', id: 'shipping-method-select', 'data-action': 'change->orders#updateTotalPrice' } %>
           <% end %>
         </div>
 
@@ -97,7 +97,7 @@
         <% end %>
         <div class="checkout-total">
           <h3>Total</h3>
-          <h3><%= number_to_currency(@order.total_price, unit: '€') %></h3>
+          <h3 id="total-price"><%= number_to_currency(@order.total_price, unit: '€') %></h3>
         </div>
       </div>
     </div>

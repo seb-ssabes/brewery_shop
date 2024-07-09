@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   layout 'checkout', only:[:new]
+  before_action :set_order, only: [:show]
 
   def new
     @order = Order.new
@@ -23,17 +24,32 @@ class OrdersController < ApplicationController
     end
   end
 
-  def show
+  def update_total_price
+    @order = Order.new(order_params)
+    @order.total_price = calculate_total_price
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('total_price', partial: 'orders/total_price', locals: { total_price: @order.total_price }) }
+    end
+  end
+
+  def showOrder
     @order = Order.find(params[:id])
   end
 
   private
 
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
   def order_params
-    params.require(:order).permit(:status, order_items_attributes: [:beer_id, :quantity, :price])
+    params.require(:order).permit(:status, :name, :email, :shipping_method_id, order_items_attributes: [:id, :quantity, :beer_id, :quantity, :price, :_destroy])
   end
 
   def calculate_total_price
-    @order.order_items.map { |items| item.quantity * item.price }.sum
+    items_total = @order.order_items.sum(&:total_price)
+    shipping_cost = @order.shipping_method&.price || 0
+    items_total + shipping_cost
   end
 end
