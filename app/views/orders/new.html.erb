@@ -1,5 +1,6 @@
-<div class="checkout-container">
 <%= stylesheet_link_tag 'checkout', 'data-turbo-track': 'reload' %>
+
+<div class="checkout-container">
   <div class="banner-checkout">
     <div class="hidden-div"></div>
     <div class="image-container"><img src="<%= asset_path('Brewery Logo.png') %>" class="checkout-image"></div>
@@ -13,53 +14,69 @@
   <div class="checkout-main">
     <div class="checkout-left">
       <div class="checkout-form">
-        <h2>Delivery</h2>
-        <%= form_for @order, local: true, class: "row g-3" do |f| %>
-          <div class="form-group">
-            <div class="col-md-12">
-              <%= f.country_select :country, { prompt: "Country" }, { class: "form-control", required: true } %>
-            </div>
-          </div>
+        <div class="mb-5">
+          <h3 class="mb-2">Contact</h3>
+          <%= form_for @order, local: true do |f| %>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <%= f.email_field :email, class: "form-control", required: true, placeholder: "Email" %>
+              </div>
 
-          <div class="form-group row">
-            <div class="col-md-6">
-              <%= f.text_field :name, class: "form-control", required: true, placeholder: "Name" %>
+              <div class="col-md-12">
+                <%= f.telephone_field :phone, class: "form-control", required: true, placeholder: "Mobile phone (optional)" %>
+              </div>
             </div>
-            <div class="col-md-6">
-              <%= f.text_field :last_name, class: "form-control", required: true, placeholder: "Last name" %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-12">
-              <%= f.text_field :address, class: "form-control", required: true, placeholder: "Address" %>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-md-6">
-              <%= f.email_field :email, class: "form-control", required: true, placeholder: "Email" %>
+          <% end %>
+        </div>
+        <div class="mb-5">
+          <h3 class="mb-2">Delivery</h3>
+          <%= form_for @order, local: true, class: "row g-3" do |f| %>
+            <div class="form-group">
+              <div class="col-md-12">
+                <%= f.country_select :country, { prompt: "Country" }, { class: "form-control", required: true } %>
+              </div>
             </div>
 
-            <div class="col-md-6">
-              <%= f.telephone_field :phone, class: "form-control", required: true, placeholder: "Mobile phone (optional)" %>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-md-4">
-              <%= f.text_field :city, class: "form-control", required: true, placeholder: "City" %>
-            </div>
-
-            <div class="col-md-4">
-              <%= f.text_field :region, class: "form-control", required: true, placeholder: "Region" %>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <%= f.text_field :name, class: "form-control", required: true, placeholder: "Name" %>
+              </div>
+              <div class="col-md-6">
+                <%= f.text_field :last_name, class: "form-control", required: true, placeholder: "Last name" %>
+              </div>
             </div>
 
-            <div class="col-md-4">
-              <%= f.text_field :post_code, class: "form-control", required: true, placeholder: "Postal code" %>
+            <div class="form-group">
+              <div class="col-md-12">
+                <%= f.text_field :address, class: "form-control", required: true, placeholder: "Address" %>
+              </div>
             </div>
-          </div>
 
+            <div class="form-group row">
+              <div class="col-md-4">
+                <%= f.text_field :city, class: "form-control", required: true, placeholder: "City" %>
+              </div>
+
+              <div class="col-md-4">
+                <%= f.text_field :region, class: "form-control", required: true, placeholder: "Region" %>
+              </div>
+
+              <div class="col-md-4">
+                <%= f.text_field :post_code, class: "form-control", required: true, placeholder: "Postal code" %>
+              </div>
+            </div>
+
+
+          <% end %>
+        </div>
+        <div class="mb-5">
+          <h3 class="mb-2">Shipping method</h3>
+        </div>
+
+        <div class="mb-5">
+          <h3 class="mb-2">Payment</h3>
+        </div>
+        <%= form_for @order, local: true do |f| %>
           <%= f.submit 'Place Order', class: "place-order-buttom" %>
         <% end %>
       </div>
