@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   resource :cart, only: [:show]
   resources :cart_items, only: [:create, :update, :destroy]
+
   resources :orders, only: [:new, :create, :show]
   resources :orders do
-    post 'update_total_price', on: :collection
+    post 'update_total_price', on: :member
   end
 
   root 'home#index'

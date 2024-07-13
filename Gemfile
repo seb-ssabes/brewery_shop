@@ -73,8 +73,10 @@ gem 'font-awesome-sass', '~> 6.0'
 
 gem 'devise'
 
-gem 'webpacker', '~> 5.4', '>= 5.4.4'
-
 gem 'country_select'
 
 gem 'bootstrap', '~> 5.1.3'
+
+gem 'hotwire-rails'
+
+gem "simple_form", github: "heartcombo/simple_form"

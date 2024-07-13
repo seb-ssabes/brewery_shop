@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   layout 'checkout', only:[:new]
   before_action :set_order, only: [:show]
+  protect_from_forgery with: :null_session, only: [:update_total_price]
+
 
   def new
     @order = Order.new
@@ -25,12 +27,10 @@ class OrdersController < ApplicationController
   end
 
   def update_total_price
-    @order = Order.new(order_params)
-    @order.total_price = calculate_total_price
+    @order = Order.find(params[:order_id])
+    @order.update(shipping_method_id: params[:shipping_method_id])
 
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace('total_price', partial: 'orders/total_price', locals: { total_price: @order.total_price }) }
-    end
+    render json: { total_price: @order.total_price }
   end
 
   def showOrder

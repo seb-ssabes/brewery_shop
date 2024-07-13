@@ -1,6 +1,9 @@
-<%= stylesheet_link_tag 'checkout', 'data-turbo-track': 'reload' %>
+<%= stylesheet_link_tag 'checkout' %>
 
 <div class="checkout-container">
+  <div data-controller="hello">
+    <h1>Hello, Stimulus!</h1>
+  </div>
   <div class="banner-checkout">
     <div class="hidden-div"></div>
     <div class="image-container"><img src="<%= asset_path('Brewery Logo.png') %>" class="checkout-image"></div>
@@ -11,7 +14,7 @@
     </div>
   </div>
 
-  <div class="checkout-main">
+  <div class="checkout-main" data-controller="orders">
     <div class="checkout-left">
       <div class="checkout-form">
         <div class="mb-5">
@@ -71,8 +74,8 @@
         </div>
         <div class="mb-5">
           <h3 class="mb-2">Shipping method</h3>
-          <%= form_for @order, local: true do |f| %>
-            <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: ""}, { class: 'form-control', id: 'shipping-method-select', 'data-action': 'change->orders#updateTotalPrice' } %>
+          <%= form_with model: @order, html: { class: "" }, local: false, data: { controller: "orders" } do |f| %>
+            <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
           <% end %>
         </div>
 
@@ -95,7 +98,7 @@
             <div class="order-beer-price"><%= number_to_currency(item.total_price, unit: '€') %></div>
           </div>
         <% end %>
-        <div class="checkout-total">
+        <div class="checkout-total" data-orders-target="totalPrice">
           <h3>Total</h3>
           <h3 id="total-price"><%= number_to_currency(@order.total_price, unit: '€') %></h3>
         </div>

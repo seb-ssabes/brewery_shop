@@ -3,14 +3,17 @@
   <head>
     <title>BreweryShop</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-token" content="<%= form_authenticity_token %>">
+
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_pack_tag "application", 'data-turbo-track': 'reload' %>
-
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%# <%= turbo_include_tags %> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
