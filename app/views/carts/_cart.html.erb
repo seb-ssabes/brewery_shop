@@ -5,6 +5,6 @@
       <li><%= item.beer.title %> - <%= item.quantity %></li>
     <% end %>
   </ul>
-  <p>Total items: <%= @cart.total_quantity %></p>
+  <p>Total items: <%= @cart.total_units %></p>
   <p>Total price: <%= number_to_currency(@cart.total_price) %></p>
 </div>
