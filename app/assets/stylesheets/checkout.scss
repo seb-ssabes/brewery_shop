@@ -1,4 +1,5 @@
 @import 'bootstrap';
+// @import 'font-awesome';
 
 .checkout-container {
   width: 100%;
@@ -148,12 +149,24 @@
   margin: 0 10px;
 }
 
-.checkout-total {
+.checkout-total, .checkout-subtotal, .checkout-shipping  {
   display: flex;
   justify-content: space-between;
   width: 65%;
+  // background-color: rgb(80, 60, 93);
 }
 
 .checkout-total h3 {
   margin: 0;
 }
+
+// .checkout-subtotal {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 65%;
+// }
+
+
+// .checkout-subtotal h6 {
+//   color: rgb(81, 64, 64);
+// }

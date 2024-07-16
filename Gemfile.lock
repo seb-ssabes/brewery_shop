@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/heartcombo/simple_form.git
-  revision: 246c7977a96d5a04434f7d186f4099f88f45f359
-  specs:
-    simple_form (5.3.1)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,10 +130,6 @@ GEM
       sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    hotwire-rails (0.1.3)
-      rails (>= 6.0.0)
-      stimulus-rails
-      turbo-rails
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -325,7 +313,6 @@ DEPENDENCIES
   debug
   devise
   font-awesome-sass (~> 6.0)
-  hotwire-rails
   importmap-rails
   jbuilder
   letter_opener
@@ -333,7 +320,6 @@ DEPENDENCIES
   rails (~> 7.1.3, >= 7.1.3.4)
   sassc-rails
   selenium-webdriver
-  simple_form!
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

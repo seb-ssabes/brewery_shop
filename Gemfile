@@ -77,6 +77,3 @@ gem 'country_select'
 
 gem 'bootstrap', '~> 5.1.3'
 
-gem 'hotwire-rails'
-
-gem "simple_form", github: "heartcombo/simple_form"

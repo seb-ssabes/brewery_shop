@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag 'checkout' %>
 
+<div data-controller="hello">
+  Stimulus should log a message when this div is loaded.
+</div>
+
 <div class="checkout-container">
-  <div data-controller="hello">
-    <h1>Hello, Stimulus!</h1>
-  </div>
-  <div class="banner-checkout">
+  <div class="banner-checkout" >
     <div class="hidden-div"></div>
     <div class="image-container"><img src="<%= asset_path('Brewery Logo.png') %>" class="checkout-image"></div>
     <div class="checkout-shopping">
@@ -14,7 +15,7 @@
     </div>
   </div>
 
-  <div class="checkout-main" data-controller="orders">
+  <div class="checkout-main">
     <div class="checkout-left">
       <div class="checkout-form">
         <div class="mb-5">
@@ -74,8 +75,12 @@
         </div>
         <div class="mb-5">
           <h3 class="mb-2">Shipping method</h3>
-          <%= form_with model: @order, html: { class: "" }, local: false, data: { controller: "orders" } do |f| %>
+          <%= form_with model: @order, local: false, data: { controller: "orders" } do |f| %>
             <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
+            <div class="checkout-total" data-orders-target="TotalPrice">
+              <h3>Total</h3>
+              <h3 id="total-price"><%= number_to_currency(@order.total_price, unit: '€') %></h3>
+            </div>
           <% end %>
         </div>
 
@@ -98,10 +103,20 @@
             <div class="order-beer-price"><%= number_to_currency(item.total_price, unit: '€') %></div>
           </div>
         <% end %>
-        <div class="checkout-total" data-orders-target="totalPrice">
+
+        <div class="checkout-subtotal">
+          <h6>Subtotal</h6>
+          <h6 id="subtotal-price"><%= number_to_currency(@order.total_price, unit: '€') %></h6>
+        </div>
+        <div class="checkout-shipping">
+          <h6>Shipping<h6>
+          <h6 id="shipping-price"><%= number_to_currency(@order.total_price, unit: '€') %></h6>
+        </div>
+        <div class="checkout-total">
           <h3>Total</h3>
           <h3 id="total-price"><%= number_to_currency(@order.total_price, unit: '€') %></h3>
         </div>
+
       </div>
     </div>
   </div>

@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   layout 'checkout', only:[:new]
   before_action :set_order, only: [:show]
-  protect_from_forgery with: :null_session, only: [:update_total_price]
 
 
   def new
