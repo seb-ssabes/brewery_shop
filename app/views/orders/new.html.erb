@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'checkout' %>
+<%= stylesheet_link_tag 'checkout', 'data-turbo-track': 'reload' %>
 
 <div data-controller="hello">
   Stimulus should log a message when this div is loaded.
@@ -77,7 +77,7 @@
           <h3 class="mb-2">Shipping method</h3>
           <%= form_with model: @order, local: false, data: { controller: "orders" } do |f| %>
             <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
-            <div class="checkout-total" data-orders-target="TotalPrice">
+            <div class="checkout-total" data-orders-target="totalPrice">
               <h3>Total</h3>
               <h3 id="total-price"><%= number_to_currency(@order.total_price, unit: '€') %></h3>
             </div>
