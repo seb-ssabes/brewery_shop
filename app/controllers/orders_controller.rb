@@ -29,10 +29,10 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     @order.update(shipping_method_id: params[:shipping_method_id])
 
-    render json: { total_price: @order.total_price }
+    # render JSON
   end
 
-  def showOrder
+  def show
     @order = Order.find(params[:id])
   end
 

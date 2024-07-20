@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :update, :destroy]
 
   resources :orders, only: [:new, :create, :show]
+  
   resources :orders do
     post 'update_total_price', on: :member
   end
