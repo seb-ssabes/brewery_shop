@@ -23,13 +23,15 @@ class OrdersController < ApplicationController
       @shipping_methods = ShippingMethod.all
       render :new
     end
+
+
   end
 
   def update_total_price
     @order = Order.find(params[:order_id])
     @order.update(shipping_method_id: params[:shipping_method_id])
 
-    # render JSON
+    render json: { total_price: @order.total_price }
   end
 
   def show

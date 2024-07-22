@@ -132,6 +132,9 @@
   background-color: white;
   border-radius: 3px;
   overflow: hidden;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .order-beer-image img {
@@ -140,33 +143,41 @@
   border-radius: 3px;
   object-fit: cover;
   display: block;
+  object-fit: cover;
+}
+
+.order-beer-title {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 80px;
 }
 
 .order-beer-title, .order-beer-price {
-  display:flex;
+  display: flex;
   text-align: center;
   align-items: center;
-  margin: 0 10px;
 }
 
 .checkout-total, .checkout-subtotal, .checkout-shipping  {
   display: flex;
   justify-content: space-between;
   width: 65%;
-  // background-color: rgb(80, 60, 93);
+}
+
+.checkout-subtotal {
+margin-top: 20px;
+}
+
+.checkout-total, .checkout-shipping {
+  margin-top: 5px;
 }
 
 .checkout-total h3 {
   margin: 0;
 }
 
-// .checkout-subtotal {
-//   display: flex;
-//   justify-content: space-between;
-//   width: 65%;
-// }
-
-
-// .checkout-subtotal h6 {
-//   color: rgb(81, 64, 64);
-// }
+#shipping-price, #total-price {
+  color: rgb(160, 160, 160);
+}

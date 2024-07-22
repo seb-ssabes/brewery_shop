@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="checkout-main" data-controller="orders">
+  <div class="checkout-main" data-controller="orders" data-order-id="<%= @order.id %>">
     <div class="checkout-left">
       <div class="checkout-form">
         <div class="mb-5">
@@ -98,15 +98,15 @@
 
         <div class="checkout-subtotal">
           <h6>Subtotal</h6>
-          <h6 id="subtotal-price"><%= number_to_currency(@order.total_price, unit: '€') %></h6>
+          <h6 id="subtotal-price" data-orders-target="subtotalPrice"><%= number_to_currency(@order.items_total, unit: '€') %></h6>
         </div>
         <div class="checkout-shipping">
           <h6>Shipping<h6>
-          <h6 data-orders-target="shipping" id="shipping-price"><%= number_to_currency(@order.total_price, unit: '€') %></h6>
+          <h6 data-orders-target="shipping" id="shipping-price">Enter a shipping method</h6>
         </div>
         <div class="checkout-total">
           <h3>Total</h3>
-          <h3 data-orders-target="totalPrice" id="total-price"><%= number_to_currency(@order.total_price, unit: '€') %></h3>
+          <h3 data-orders-target="totalPrice" id="total-price">- -</h3>
         </div>
       </div>
     </div>
