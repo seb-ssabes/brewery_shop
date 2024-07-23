@@ -9,19 +9,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row;
 
 }
 
 .header-image-nav {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.logo-link {
+  display: inline-block;
 }
 
 .header-image {
-  color: #fff;
+  display: block;
   padding: 5px;
-  width: 13%;
+  width: 20%;
+  height: auto;
 }
 
 .header-nav {
@@ -30,14 +36,14 @@
   justify-content: center;
   padding: 10px 20px;
   align-self: center;
+  margin-left: -600px;
+  margin-right: 400px;
 }
 
 .header-icons {
   display: flex;
   align-items: center;
 }
-
-
 
 .nav-links, .nav-icons {
   display: flex;
@@ -103,4 +109,15 @@
 .beer-types-count {
   margin: 0 3px;
   font-size: 15px;
+}
+
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.logo-link .header-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

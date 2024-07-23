@@ -1,7 +1,9 @@
 <header class="header-container">
   <div class="header-header">
     <div class="header-image-nav">
-      <img src="<%= asset_path('Brewery Logo.png') %>" class="header-image" alt="Header Image">
+      <%= link_to root_path, class: "logo-link" do %>
+        <img src="<%= asset_path('Brewery Logo.png') %>" class="header-image">
+      <% end %>
       <nav class="header-nav">
         <ul class="nav-links">
           <li class="header-menu <%= 'active' if current_page?(root_path) %>"><%= link_to 'Home', root_path %></li>
