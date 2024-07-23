@@ -18,11 +18,14 @@
 
   <body>
     <div class="body-container">
+
       <div class="announcement-bar">
         <p class="bar-message">American Inspired Brewery Shop</p>
       </div>
 
       <%= render 'layouts/header' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
       <main class="content">
         <%= yield %>

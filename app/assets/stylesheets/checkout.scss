@@ -80,7 +80,7 @@
 .checkout-summary {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 120%;
   align-items: flex-start;
 }
 
@@ -178,6 +178,6 @@ margin-top: 20px;
   margin: 0;
 }
 
-#shipping-price, #total-price {
+#shipping-price {
   color: rgb(160, 160, 160);
 }

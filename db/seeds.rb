@@ -25,4 +25,7 @@ ShippingMethod.create([
   { name: 'Barleytown Shipping (local) - €2.00', price: 2.00 },
 ])
 
-puts "Seeded #{Beer.count} beers and #{ShippingMethod.count} shipping methods."
+User.create(name: "Seb", email: "seb@email.com", password: "123456")
+
+
+puts "Seeded #{Beer.count} beers, #{ShippingMethod.count} shipping methods and #{User.count} user."

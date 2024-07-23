@@ -80,7 +80,7 @@
           <h3 class="mb-2">Payment</h3>
         </div>
         <%= form_for @order, local: true do |f| %>
-          <%= f.submit 'Place Order', class: "place-order-buttom" %>
+          <%= f.submit 'Place Order', class: "place-order-buttom", notice: "Hola"  %>
         <% end %>
       </div>
     </div>
