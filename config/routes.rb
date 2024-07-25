@@ -11,10 +11,14 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :update, :destroy]
 
   resources :orders, only: [:new, :create, :show]
-  
+
   resources :orders do
     post 'update_total_price', on: :member
   end
+
+  resources :payments, only: [:new, :create]
+  resource :fulfillment, only: :show
+
 
   root 'home#index'
   get 'beers', to: 'beers#index'

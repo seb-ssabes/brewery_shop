@@ -77,3 +77,6 @@ gem 'country_select'
 
 gem 'bootstrap', '~> 5.1.3'
 
+gem "pay", "~> 7.0"
+
+gem "stripe", "~> 12.0"

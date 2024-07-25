@@ -15,8 +15,9 @@
     <div class="checkout-left">
       <div class="checkout-form">
         <div class="mb-5">
-          <h3 class="mb-2">Contact</h3>
-          <%= form_for @order, local: true do |f| %>
+          <%= form_for @order, url: orders_path, method: :post, local: true do |f| %>
+
+            <h3 class="mb-2">Contact</h3>
             <div class="form-group row">
               <div class="col-md-12">
                 <%= f.email_field :email, class: "form-control", required: true, placeholder: "Email" %>
@@ -26,17 +27,13 @@
                 <%= f.telephone_field :phone, class: "form-control", required: true, placeholder: "Mobile phone (optional)" %>
               </div>
             </div>
-          <% end %>
-        </div>
-        <div class="mb-5">
-          <h3 class="mb-2">Delivery</h3>
-          <%= form_for @order, local: true, class: "row g-3" do |f| %>
+
+            <h3 class="mb-2">Delivery</h3>
             <div class="form-group">
               <div class="col-md-12">
                 <%= f.country_select :country, { prompt: "Country" }, { class: "form-control", required: true } %>
               </div>
             </div>
-
             <div class="form-group row">
               <div class="col-md-6">
                 <%= f.text_field :name, class: "form-control", required: true, placeholder: "Name" %>
@@ -45,13 +42,11 @@
                 <%= f.text_field :last_name, class: "form-control", required: true, placeholder: "Last name" %>
               </div>
             </div>
-
             <div class="form-group">
               <div class="col-md-12">
                 <%= f.text_field :address, class: "form-control", required: true, placeholder: "Address" %>
               </div>
             </div>
-
             <div class="form-group row">
               <div class="col-md-4">
                 <%= f.text_field :city, class: "form-control", required: true, placeholder: "City" %>
@@ -66,50 +61,44 @@
               </div>
             </div>
 
-
+            <h3 class="mb-2">Shipping method</h3>
+            <div class="actions">
+              <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
+            </div>
+            <%= f.submit 'Save and go to payment', class: "place-order-buttom"  %>
           <% end %>
         </div>
-        <div class="mb-5">
-          <h3 class="mb-2">Shipping method</h3>
-            <%= form_with model: @order do |f| %>
-              <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
-            <% end %>
-        </div>
-
-        <div class="mb-5">
-          <h3 class="mb-2">Payment</h3>
-        </div>
-        <%= form_for @order, local: true do |f| %>
-          <%= f.submit 'Place Order', class: "place-order-buttom", notice: "Hola"  %>
-        <% end %>
       </div>
     </div>
 
     <div class="checkout-right">
       <div class="checkout-summary">
-
-        <% @order_items.each do |item| %>
-          <div class="order-beer-card">
-            <div class="order-beer-image"><%= image_tag(item.beer.image) %></div>
-            <div class="order-beer-title">Qty <%= item.quantity %> - <%= item.beer.title %></div>
-            <div class="order-beer-price"><%= number_to_currency(item.total_price, unit: '€') %></div>
-          </div>
+        <% if @order_items.present? %>
+          <% @order_items.each do |item| %>
+            <div class="order-beer-card">
+              <div class="order-beer-image"><%= image_tag(item.beer.image) %></div>
+              <div class="order-beer-title">Qty <%= item.quantity %> - <%= item.beer.title %></div>
+              <div class="order-beer-price"><%= number_to_currency(item.total_price, unit: '€') %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No items in your order.</p>
         <% end %>
+      </div>
 
-        <div class="checkout-subtotal">
-          <h6>Subtotal</h6>
-          <h6 id="subtotal-price" data-orders-target="subtotalPrice"><%= number_to_currency(@order.items_total, unit: '€') %></h6>
-        </div>
-        <div class="checkout-shipping">
-          <h6>Shipping<h6>
-          <h6 data-orders-target="shipping" id="shipping-price">Enter a shipping method</h6>
-        </div>
-        <div class="checkout-total">
-          <h3>Total</h3>
-          <h3 data-orders-target="totalPrice" id="total-price">- -</h3>
-        </div>
+      <div class="checkout-subtotal">
+        <h6>Subtotal</h6>
+        <h6 id="subtotal-price" data-orders-target="subtotalPrice"><%= number_to_currency(@order.items_total, unit: '€') %></h6>
+      </div>
+      <div class="checkout-shipping">
+        <h6>Shipping<h6>
+        <h6 data-orders-target="shipping" id="shipping-price">Enter a shipping method</h6>
+      </div>
+      <div class="checkout-total">
+        <h3>Total</h3>
+        <h3 data-orders-target="totalPrice" id="total-price">- -</h3>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
