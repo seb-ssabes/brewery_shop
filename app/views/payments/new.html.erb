@@ -1,9 +1,8 @@
 <h1>Payments#new</h1>
-
 <div class="checkout-right">
   <div class="checkout-summary">
-    <% if @order_items.present? %>
-      <% @order_items.each do |item| %>
+    <% if @order && @order.order_items.present? %>
+      <% @order.order_items.each do |item| %>
         <div class="order-beer-card">
           <div class="order-beer-image"><%= image_tag(item.beer.image) %></div>
           <div class="order-beer-title">Qty <%= item.quantity %> - <%= item.beer.title %></div>
@@ -16,8 +15,8 @@
   </div>
 </div>
 
-<%= tag.div data: {
+<%# <%= tag.div data: {
   controller: "stripe",
   stripe_public_key_value: Pay::Stripe.public_key,
   stripe_client_secret_value: @checkout_session.client_secret
-} %>
+} %> 

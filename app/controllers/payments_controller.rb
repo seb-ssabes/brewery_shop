@@ -3,10 +3,10 @@ class PaymentsController < ApplicationController
   def new
     @order = current_user.orders.last
     Rails.logger.info "Order: #{@order.inspect}"
-    @order_items = @order.order_items
-    Rails.logger.info "Order Items: #{@order_items.inspect}"
 
     if @order.present?
+      @order_items = @order.order_items
+      Rails.logger.info "Order Items: #{@order_items.inspect}"
     else
       flash[:alert] = "Order not found."
       redirect_to root_path
@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
   private
 
   def set_order
-    @order = Order.find(params[:order_id])
+    @order = Order.find(session[:order_id])
     if @order.nil?
       flash[:alert] = "Order not found."
       redirect_to root_url and return

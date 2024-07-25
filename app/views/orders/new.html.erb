@@ -62,10 +62,10 @@
             </div>
 
             <h3 class="mb-2">Shipping method</h3>
+            <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
             <div class="actions">
-              <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
+              <%= f.submit 'Save and go to payment', class: "place-order-buttom"  %>
             </div>
-            <%= f.submit 'Save and go to payment', class: "place-order-buttom"  %>
           <% end %>
         </div>
       </div>

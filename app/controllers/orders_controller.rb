@@ -17,10 +17,14 @@ class OrdersController < ApplicationController
     @order.total_price = calculate_total_price
 
     if @order.save
+      session[:order_id] = @order.id
       session[:cart_id] = nil
       redirect_to new_payment_path
     else
       @shipping_methods = ShippingMethod.all
+      @order_items = current_cart.cart_items.map do |item|
+        @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
+      end
       render :new
     end
   end
