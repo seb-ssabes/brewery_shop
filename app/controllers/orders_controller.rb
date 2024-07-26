@@ -5,16 +5,30 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @shipping_methods = ShippingMethod.all
+    Rails.logger.debug("Current Cart: #{current_cart.inspect}")
+    Rails.logger.debug("Cart Items: #{current_cart.cart_items.inspect}")
+
+
     @order_items = current_cart.cart_items.map do |item|
       @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
     end
+
+
+    # @order_items = current_cart.cart_items.map do |item|
+    #   @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
+    # end
+    Rails.logger.debug("Order: #{@order.inspect}")
+    Rails.logger.debug("Order items: #{@order.order_items.inspect}")
+    Rails.logger.debug("Items subtotal: #{calculate_total_price}")
   end
 
 
   def create
     @order = current_user.orders.new(order_params)
+    @order.status = "pending"
     @order.shipping_method = ShippingMethod.find(params[:order][:shipping_method_id])
     @order.total_price = calculate_total_price
+
 
     if @order.save
       session[:order_id] = @order.id
@@ -51,14 +65,12 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(
-    :status, :name, :email, :shipping_method_id, :total_price, :"user_id", :"last_name",
-    :"address", :"phone", :"country", :"city", :"post_code", :"region",
+    :name, :"last_name", :email, :"address", :"user_id",
+    :"phone", :"country", :"city", :"post_code", :"region", :shipping_method_id,
     order_items_attributes: [:id, :beer_id, :quantity, :price, :_destroy])
   end
 
   def calculate_total_price
-    items_total = @order.order_items.sum(&:total_price)
-    shipping_cost = @order.shipping_method&.price || 0
-    items_total + shipping_cost
+    @order.items_subtotal
   end
 end

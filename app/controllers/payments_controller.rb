@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_order, only: [:new]
+  # before_action :set_order, only: [:new]
   def new
     @order = current_user.orders.last
     Rails.logger.info "Order: #{@order.inspect}"

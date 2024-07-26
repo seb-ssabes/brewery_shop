@@ -16,6 +16,11 @@
       <div class="checkout-form">
         <div class="mb-5">
           <%= form_for @order, url: orders_path, method: :post, local: true do |f| %>
+            <%= f.fields_for :order_items do |item_fields| %>
+              <%= item_fields.hidden_field :beer_id %>
+              <%= item_fields.hidden_field :quantity %>
+              <%= item_fields.hidden_field :price %>
+            <% end %>
 
             <h3 class="mb-2">Contact</h3>
             <div class="form-group row">
@@ -63,6 +68,7 @@
 
             <h3 class="mb-2">Shipping method</h3>
             <%= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, { prompt: "Select a shipping method"}, { class: 'form-control', id: 'shipping-method-select', data: { action: 'orders#updateTotalPrice' } } %>
+
             <div class="actions">
               <%= f.submit 'Save and go to payment', class: "place-order-buttom"  %>
             </div>
@@ -88,7 +94,7 @@
 
       <div class="checkout-subtotal">
         <h6>Subtotal</h6>
-        <h6 id="subtotal-price" data-orders-target="subtotalPrice"><%= number_to_currency(@order.items_total, unit: '€') %></h6>
+        <h6 id="subtotal-price" data-orders-target="subtotalPrice"><%= number_to_currency(@order.items_subtotal, unit: '€') %></h6>
       </div>
       <div class="checkout-shipping">
         <h6>Shipping<h6>
