@@ -13,10 +13,6 @@ class OrdersController < ApplicationController
       @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
     end
 
-
-    # @order_items = current_cart.cart_items.map do |item|
-    #   @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
-    # end
     Rails.logger.debug("Order: #{@order.inspect}")
     Rails.logger.debug("Order items: #{@order.order_items.inspect}")
     Rails.logger.debug("Items subtotal: #{calculate_total_price}")

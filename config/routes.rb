@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :payments, only: [:new, :create]
-  resource :fulfillment, only: :show
+  resource :fulfillments, only: :show
 
 
   root 'home#index'

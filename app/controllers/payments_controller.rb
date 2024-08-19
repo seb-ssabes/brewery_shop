@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  # before_action :set_order, only: [:new]
+  before_action :set_order, only: [:new]
   def new
     @order = current_user.orders.last
     Rails.logger.info "Order: #{@order.inspect}"
@@ -39,20 +39,21 @@ class PaymentsController < ApplicationController
       customer_update: {address: :auto},
       mode: :payment,
       ui_mode: :embedded,
-      line_items: [
-        { price: "prod_QX7UPHyIKs8ghh", quantity: 1 },
-        { price: "prod_QX7UXiTngdE3yO", quantity: 1 },
-        { price: "prod_QX7TpdK1MJ552Q", quantity: 1 },
-        { price: "prod_QX7TssIrymOmIl", quantity: 1 },
-        { price: "prod_QX7STb77gHrG0y", quantity: 1 },
-        { price: "prod_QX7RCWMy9N3Ipm", quantity: 1 },
-        { price: "prod_QX7QHqB1inGCT4", quantity: 1 },
-        { price: "prod_QX7P1myzNKL2wU", quantity: 1 },
-        { price: "prod_QX7OzksaeO9wNR", quantity: 1 },
-        { price: "prod_QX7LnXrXc23Xy1", quantity: 1 }
-      ],
+      line_items: "default",
+      # [
+        # { price: "prod_QX7UPHyIKs8ghh", quantity: 1 },
+        # { price: "prod_QX7UXiTngdE3yO", quantity: 1 },
+        # { price: "prod_QX7TpdK1MJ552Q", quantity: 1 },
+        # { price: "prod_QX7TssIrymOmIl", quantity: 1 },
+        # { price: "prod_QX7STb77gHrG0y", quantity: 1 },
+        # { price: "prod_QX7RCWMy9N3Ipm", quantity: 1 },
+        # { price: "prod_QX7QHqB1inGCT4", quantity: 1 },
+        # { price: "prod_QX7P1myzNKL2wU", quantity: 1 },
+        # { price: "prod_QX7OzksaeO9wNR", quantity: 1 },
+        # { price: "prod_QX7LnXrXc23Xy1", quantity: 1 }
+      # ],
       metadata: {order_id: @order.id},
-      return_url: fulfillments_url
+      # return_url: fulfillment_path,
     }
 
     @checkout_session = payment_processor.checkout(**args)
