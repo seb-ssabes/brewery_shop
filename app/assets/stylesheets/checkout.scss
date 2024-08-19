@@ -80,7 +80,7 @@
 .checkout-summary {
   display: flex;
   flex-direction: column;
-  width: 120%;
+  width: 100%;
   align-items: flex-start;
 }
 
@@ -118,7 +118,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 65%;
+  width: 78%;
   margin-bottom: 20px;
 }
 
@@ -160,10 +160,11 @@
   align-items: center;
 }
 
-.checkout-total, .checkout-subtotal, .checkout-shipping  {
+.checkout-total, .checkout-subtotal, .checkout-shipping {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 65%;
+  width: 78%;
 }
 
 .checkout-subtotal {
