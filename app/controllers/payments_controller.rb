@@ -39,21 +39,20 @@ class PaymentsController < ApplicationController
       customer_update: {address: :auto},
       mode: :payment,
       ui_mode: :embedded,
-      line_items: "default",
-      # [
-        # { price: "prod_QX7UPHyIKs8ghh", quantity: 1 },
-        # { price: "prod_QX7UXiTngdE3yO", quantity: 1 },
-        # { price: "prod_QX7TpdK1MJ552Q", quantity: 1 },
-        # { price: "prod_QX7TssIrymOmIl", quantity: 1 },
-        # { price: "prod_QX7STb77gHrG0y", quantity: 1 },
-        # { price: "prod_QX7RCWMy9N3Ipm", quantity: 1 },
-        # { price: "prod_QX7QHqB1inGCT4", quantity: 1 },
-        # { price: "prod_QX7P1myzNKL2wU", quantity: 1 },
-        # { price: "prod_QX7OzksaeO9wNR", quantity: 1 },
-        # { price: "prod_QX7LnXrXc23Xy1", quantity: 1 }
-      # ],
+      line_items:[
+        { price: "price_1Pg3FuDXtvoNv6XkUbpNlPTh", quantity: 1 },
+        { price: "price_1Pg3FNDXtvoNv6Xk28ewlcZ0", quantity: 1 },
+        { price: "price_1Pg3EsDXtvoNv6XkgNqABmsS", quantity: 1 },
+        { price: "price_1Pg3E9DXtvoNv6XkDOVZyijm", quantity: 1 },
+        { price: "price_1Pg3DTDXtvoNv6XkNpQIBLH6", quantity: 1 },
+        { price: "price_1Pg3CcDXtvoNv6XklOoxyxxp", quantity: 1 },
+        { price: "price_1Pg3BDDXtvoNv6XkDPx3OKsS", quantity: 1 },
+        { price: "price_1Pg3AcDXtvoNv6XkQ6lyYcWC", quantity: 1 },
+        { price: "price_1Pg39tDXtvoNv6Xk2dkpwrfm", quantity: 1 },
+        { price: "price_1Pg36bDXtvoNv6Xk4adIZ6JM", quantity: 1 }
+      ],
       metadata: {order_id: @order.id},
-      # return_url: fulfillment_path,
+      return_url: fulfillments_url,
     }
 
     @checkout_session = payment_processor.checkout(**args)
