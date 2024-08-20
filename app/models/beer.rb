@@ -3,11 +3,5 @@ class Beer < ApplicationRecord
   has_many :carts, through: :cart_items
   has_many :order_items, dependent: :destroy
 
-  validates :title, presence: true
-  validates :price, presence: true
-  validates :description, presence: true
-  validates :image, presence: true
-  validates :abv, presence: true
-  validates :ibu, presence: true
-  validates :hops, presence: true
+  validates :title, :price, :description, :image, :abv, :ibu, :hops, :stripe_price_id, presence: true
 end

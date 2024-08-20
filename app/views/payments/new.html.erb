@@ -1,4 +1,6 @@
-<%= tag.div data: {
+<%= stylesheet_link_tag 'checkout', 'data-turbo-track': 'reload' %>
+
+<%= tag.div class: "w-100 mt-4", data: {
   controller: "stripe",
   stripe_public_key_value: Pay::Stripe.public_key,
   stripe_client_secret_value: @checkout_session.client_secret

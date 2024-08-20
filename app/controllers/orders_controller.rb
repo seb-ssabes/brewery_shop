@@ -25,7 +25,6 @@ class OrdersController < ApplicationController
     @order.shipping_method = ShippingMethod.find(params[:order][:shipping_method_id])
     @order.total_price = calculate_total_price
 
-
     if @order.save
       session[:order_id] = @order.id
       session[:cart_id] = nil

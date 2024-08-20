@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_095747) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_20_082643) do
   create_table "beers", force: :cascade do |t|
     t.string "title"
     t.decimal "price", precision: 8, scale: 2
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_095747) do
     t.text "hops"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_price_id"
   end
 
   create_table "cart_items", force: :cascade do |t|

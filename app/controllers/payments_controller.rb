@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  layout 'checkout'
   before_action :set_order, only: [:new]
   def new
     @order = current_user.orders.last
@@ -35,24 +36,31 @@ class PaymentsController < ApplicationController
   def set_ckeckout_session
     payment_processor = current_user.set_payment_processor(:stripe)
 
+    line_items = @order.order_items.map do |item|
+      {
+        price: item.beer.stripe_price_id,
+        quantity: item.quantity
+      }
+    end
+
+    line_items << {
+      price_data: {
+        currency: 'eur',
+        product_data: {
+          name: "#{@order.shipping_method.name}",
+        },
+        unit_amount: (@order.shipping_method.price * 100).to_i,
+      },
+      quantity: 1,
+    }
+
     args = {
       customer_update: {address: :auto},
       mode: :payment,
       ui_mode: :embedded,
-      line_items:[
-        { price: "price_1Pg3FuDXtvoNv6XkUbpNlPTh", quantity: 1 },
-        { price: "price_1Pg3FNDXtvoNv6Xk28ewlcZ0", quantity: 1 },
-        { price: "price_1Pg3EsDXtvoNv6XkgNqABmsS", quantity: 1 },
-        { price: "price_1Pg3E9DXtvoNv6XkDOVZyijm", quantity: 1 },
-        { price: "price_1Pg3DTDXtvoNv6XkNpQIBLH6", quantity: 1 },
-        { price: "price_1Pg3CcDXtvoNv6XklOoxyxxp", quantity: 1 },
-        { price: "price_1Pg3BDDXtvoNv6XkDPx3OKsS", quantity: 1 },
-        { price: "price_1Pg3AcDXtvoNv6XkQ6lyYcWC", quantity: 1 },
-        { price: "price_1Pg39tDXtvoNv6Xk2dkpwrfm", quantity: 1 },
-        { price: "price_1Pg36bDXtvoNv6Xk4adIZ6JM", quantity: 1 }
-      ],
+      line_items: line_items,
       metadata: {order_id: @order.id},
-      return_url: fulfillments_url,
+      return_url: payments_url,
     }
 
     @checkout_session = payment_processor.checkout(**args)
