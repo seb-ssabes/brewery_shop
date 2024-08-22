@@ -1,0 +1,22 @@
+.index-main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.beer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.show-card-container {
+  border: 8px solid #efeeee;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.beer-image-show {
+  max-width: 100%;
+  height: auto;
+}
