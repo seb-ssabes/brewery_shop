@@ -20,7 +20,12 @@ class OrdersController < ApplicationController
 
 
   def create
-    @order = current_user.orders.new(order_params)
+    if current_user
+      @order = current_user.orders.new(order_params)
+    else
+      @order = Order.new(order_params)
+    end
+
     @order.status = "pending"
     @order.shipping_method = ShippingMethod.find(params[:order][:shipping_method_id])
     @order.total_price = calculate_total_price
@@ -30,6 +35,7 @@ class OrdersController < ApplicationController
       session[:cart_id] = nil
       redirect_to new_payment_path
     else
+      Rails.logger.debug("Order errors: #{@order.errors.full_messages.join(', ')}")
       @shipping_methods = ShippingMethod.all
       @order_items = current_cart.cart_items.map do |item|
         @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)

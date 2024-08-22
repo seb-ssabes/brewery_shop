@@ -1,8 +1,8 @@
 class PaymentsController < ApplicationController
   layout 'checkout'
-  before_action :set_order, only: [:new]
+  before_action :set_order, only: [:new, :success_payment]
   def new
-    @order = current_user.orders.last
+    @order = Order.find(session[:order_id])
     Rails.logger.info "Order: #{@order.inspect}"
 
     if @order.present?
@@ -14,6 +14,7 @@ class PaymentsController < ApplicationController
     end
 
     set_ckeckout_session
+
     if @checkout_session.nil?
       flash[:alert] = "Failed to create checkout session."
     end
@@ -22,6 +23,19 @@ class PaymentsController < ApplicationController
     redirect_to root_url
   end
 
+  def success_payment
+    if current_user
+      current_cart = current_user.carts.find_by(active: true)
+    else
+      current_cart = Cart.find_by(id: session[:cart_id], active: true)
+    end
+
+    if current_cart
+      current_cart.cart_items.destroy_all
+      current_cart.update(active: false)
+      session[:cart_id] = nil
+    end
+  end
 
   private
 
@@ -34,8 +48,30 @@ class PaymentsController < ApplicationController
   end
 
   def set_ckeckout_session
-    payment_processor = current_user.set_payment_processor(:stripe)
+    if current_user
+      payment_processor = current_user.set_payment_processor(:stripe)
+      @checkout_session = payment_processor.checkout(**stripe_session_args(true))
+    else
+      @checkout_session = Stripe::Checkout::Session.create(stripe_session_args(false))
+    end
 
+    if @checkout_session.nil?
+      flash[:alert] = "Checkout session creation failed."
+      redirect_to root_url and return
+    end
+
+    Rails.logger.debug { "Checkout Session: #{@checkout_session.inspect}" }
+  rescue => e
+    Rails.logger.error "Error in creating checkout session: #{e.message}"
+    flash[:alert] = "There was a problem processing your payment."
+    redirect_to root_url
+  end
+
+  def get_shipping_cost(shipping_method_id)
+    ShippingMethod.find(shipping_method_id).price
+  end
+
+  def stripe_session_args(include_customer_update)
     line_items = @order.order_items.map do |item|
       {
         price: item.beer.stripe_price_id,
@@ -55,29 +91,15 @@ class PaymentsController < ApplicationController
     }
 
     args = {
-      customer_update: {address: :auto},
       mode: :payment,
       ui_mode: :embedded,
       line_items: line_items,
       metadata: {order_id: @order.id},
-      return_url: payments_url,
+      success_url: success_payment_payments_url,
     }
 
-    @checkout_session = payment_processor.checkout(**args)
+    args[:customer_update] = {address: :auto} if include_customer_update
 
-    if @checkout_session.nil?
-      flash[:alert] = "Checkout session creation failed."
-      redirect_to root_url and return
-    end
-
-    Rails.logger.debug { "Checkout Session: #{@checkout_session.inspect}" }
-  rescue => e
-    Rails.logger.error "Error in creating checkout session: #{e.message}"
-    flash[:alert] = "There was a problem processing your payment."
-    redirect_to root_url
-  end
-
-  def get_shipping_cost(shipping_method_id)
-    ShippingMethod.find(shipping_method_id).price
+    args
   end
 end

@@ -39,3 +39,23 @@ html, body {
   font-weight: 300;
 }
 
+.continue-shopping {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 10px 0px;
+  background-color: transparent;
+  color: rgb(56, 56, 56);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, color 0.5s linear, background-color 0.5s linear;
+  border: 2px solid rgb(56, 56, 56);
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  width: 100%;
+}
+
+.continue-shopping:hover {
+  background-color: rgb(56, 56, 56);
+  color: white;
+}

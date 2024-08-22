@@ -5,20 +5,22 @@ Rails.application.routes.draw do
     post 'add_to_cart', on: :member
   end
 
-  resources :subscribers
-  resources :contacts, only: [:new, :create]
-  resource :cart, only: [:show]
-  resources :cart_items, only: [:create, :update, :destroy]
-
-  resources :orders, only: [:new, :create, :show]
-
   resources :orders do
     post 'update_total_price', on: :member
   end
 
-  resources :payments, only: [:new, :create]
-  resource :fulfillments, only: [:show]
+  resources :payments, only: [:new, :create] do
+    collection do
+      get 'success_payment'
+    end
+  end
 
+  resources :subscribers
+  resources :contacts, only: [:new, :create]
+  resource :cart, only: [:show]
+  resources :cart_items, only: [:create, :update, :destroy]
+  resources :orders, only: [:new, :create, :show]
+  resource :fulfillments, only: [:show]
 
   root 'home#index'
   get 'beers', to: 'beers#index'
