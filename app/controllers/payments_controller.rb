@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  layout 'checkout'
+  layout 'checkout', only: [:new]
   before_action :set_order, only: [:new, :success_payment]
   def new
     @order = Order.find(session[:order_id])
@@ -95,7 +95,7 @@ class PaymentsController < ApplicationController
       ui_mode: :embedded,
       line_items: line_items,
       metadata: {order_id: @order.id},
-      success_url: success_payment_payments_url,
+      return_url: success_payment_payments_url
     }
 
     args[:customer_update] = {address: :auto} if include_customer_update
