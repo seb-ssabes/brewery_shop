@@ -6,7 +6,6 @@
   box-sizing: border-box;
   margin-top: 3px;
   width: 100%;
-  // padding-top: 20px;
 }
 
 .footer-content-bottom {
@@ -52,13 +51,10 @@
   color: rgb(154,157,158);
 }
 
-
-
 .footer-image {
   color: #fff;
   padding: 5px;
   width: 13.5%;
-  // text-align: right;
 }
 
 .footer-grid-list {
@@ -121,7 +117,6 @@
 }
 
 .new_subscriber {
-  // margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,7 +131,6 @@
 
 .new_subscriber:hover {
   box-shadow: 0 0 0 1px grey
-
 }
 
 .news-email-field {

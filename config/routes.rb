@@ -19,8 +19,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   resource :cart, only: [:show]
   resources :cart_items, only: [:create, :update, :destroy]
-  resources :orders, only: [:new, :create, :show]
-  resource :fulfillments, only: [:show]
+  resources :orders, only: [:new, :create]
 
   root 'home#index'
   get 'beers', to: 'beers#index'

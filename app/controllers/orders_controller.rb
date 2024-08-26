@@ -1,23 +1,14 @@
 class OrdersController < ApplicationController
   layout 'checkout', only:[:new]
-  before_action :set_order, only: [:show]
 
   def new
     @order = Order.new
     @shipping_methods = ShippingMethod.all
-    Rails.logger.debug("Current Cart: #{current_cart.inspect}")
-    Rails.logger.debug("Cart Items: #{current_cart.cart_items.inspect}")
-
 
     @order_items = current_cart.cart_items.map do |item|
       @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
     end
-
-    Rails.logger.debug("Order: #{@order.inspect}")
-    Rails.logger.debug("Order items: #{@order.order_items.inspect}")
-    Rails.logger.debug("Items subtotal: #{calculate_total_price}")
   end
-
 
   def create
     if current_user
@@ -35,7 +26,6 @@ class OrdersController < ApplicationController
       session[:cart_id] = nil
       redirect_to new_payment_path
     else
-      Rails.logger.debug("Order errors: #{@order.errors.full_messages.join(', ')}")
       @shipping_methods = ShippingMethod.all
       @order_items = current_cart.cart_items.map do |item|
         @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
@@ -51,18 +41,7 @@ class OrdersController < ApplicationController
     render json: { total_price: @order.total_price }
   end
 
-  def show
-    @order = Order.find(params[:id])
-    @order_items = current_cart.cart_items.map do |item|
-      @order.order_items.build(beer: item.beer, quantity: item.quantity, price: item.beer.price)
-    end
-  end
-
   private
-
-  def set_order
-    @order = Order.find(params[:order_id])
-  end
 
   def order_params
     params.require(:order).permit(

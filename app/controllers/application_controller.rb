@@ -2,12 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :initialize_subscriber
   before_action :set_current_cart
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :authenticate_user!
 
   helper_method :current_cart
-
-  # protect_from_forgery with: :exception
-
 
   def current_cart
     if current_user

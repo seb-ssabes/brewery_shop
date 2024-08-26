@@ -1,5 +1,8 @@
 <div class="contact-new-container">
   <h2 class="title">Contact Us</h2>
+  <% if notice == "Message sent succesfully" %>
+    <%= notice %>
+  <% end %>
   <div class="contact-form">
     <%= form_with(model: @contact, local: true) do |form| %>
       <% if @contact.errors.any? %>

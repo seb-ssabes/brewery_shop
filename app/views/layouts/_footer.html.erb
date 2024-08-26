@@ -33,11 +33,8 @@
                   <% end %>
                 </div>
                 <div class="form-notice">
-                  <% if notice %>
-                    <%= notice %>
-                  <% end  %>
-                  <% if alert %>
-                    <%= alert %>
+                  <% if notice == "Thanks for subscribing!" %>
+                      <%= notice %>
                   <% end %>
                 </div>
               </div>

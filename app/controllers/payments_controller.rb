@@ -3,11 +3,9 @@ class PaymentsController < ApplicationController
   before_action :set_order, only: [:new, :success_payment]
   def new
     @order = Order.find(session[:order_id])
-    Rails.logger.info "Order: #{@order.inspect}"
 
     if @order.present?
       @order_items = @order.order_items
-      Rails.logger.info "Order Items: #{@order_items.inspect}"
     else
       flash[:alert] = "Order not found."
       redirect_to root_path
