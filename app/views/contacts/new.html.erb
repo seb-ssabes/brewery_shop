@@ -3,39 +3,29 @@
   <% if notice == "Message sent succesfully" %>
     <%= notice %>
   <% end %>
+  
   <div class="contact-form">
     <%= form_with(model: @contact, local: true) do |form| %>
-      <% if @contact.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this message from being sent:</h2>
-          <ul>
-            <% @contact.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
       <div class="form-row">
         <div class="field">
-          <%= form.text_field :name, class: "form-control", placeholder: "Name", presence: true %>
+          <%= form.text_field :name, class: "form-control", placeholder: "Name", required: true %>
         </div>
 
         <div class="field">
-          <%= form.email_field :email, class: "form-control", placeholder: "Email", presence: true %>
+          <%= form.email_field :email, class: "form-control", placeholder: "Email", required: true %>
         </div>
       </div>
 
       <div class="field">
-        <%= form.text_area :comment, class: "form-control textarea", placeholder: "Comment", presence: true %>
+        <%= form.text_area :comment, class: "form-control textarea", placeholder: "Comment", required: true %>
       </div>
 
       <div class="actions">
         <%= form.submit "SEND", class: "send-button" %>
       </div>
     <% end  %>
-
   </div>
+
   <div class="contact-info">
     <h3>The Brewing Company</h3>
     <p>123 Keg Alley</p>

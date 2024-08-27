@@ -8,21 +8,18 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if @cart_item.save
-        format.turbo_stream
         format.html {redirect_to request.referrer}
       else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("cart", partial: "carts/cart", locals: { cart: current_cart }) }
-        format.html { redirect_to request.referrer, alert: 'Unable to add beer to cart.' }
+        format.html { redirect_to request.referrer }
       end
     end
-
   end
 
   def update
     if @cart_item.update(cart_item_params)
-      redirect_to cart_path(@cart), notice: 'Beer was updated'
+      redirect_to cart_path(@cart)
     else
-      redirect_to cart_path(@cart), alert: 'Unable to update Beer'
+      redirect_to cart_path(@cart)
     end
   end
 
