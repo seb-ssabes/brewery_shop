@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users ATENTION 
 
   resources :beers, only: [:index, :show] do
     post 'add_to_cart', on: :member
