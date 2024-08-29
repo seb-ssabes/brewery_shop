@@ -21,7 +21,7 @@ Rails.application.configure do
   # config.require_master_key = true
 
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
-  # config.public_file_server.enabled = false
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present? || ENV["RENDER"].present?
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
@@ -95,17 +95,5 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'yourdomain.com',
-    user_name:            'your_email@example.com',
-    password:             'your_password',
-    authentication:       'plain',
-    enable_starttls_auto: true
-    # Ensure that in production, you use environment variables or secrets management
-    # to store sensitive information like email credentials (user_name and password).
-    # Do not hardcode them in your configuration files.
-  }
+  config.action_mailer.delivery_method = :letter_opener
 end
