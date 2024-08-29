@@ -45,7 +45,6 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   # Use pg as the database for Active Record
-  gem "pg", "~> 1.4"
 end
 
 group :development do
@@ -81,3 +80,5 @@ gem "pay", "~> 7.0"
 gem "stripe", "~> 12.0"
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem "pg", "~> 1.4"
