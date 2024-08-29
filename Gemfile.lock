@@ -319,7 +319,7 @@ DEPENDENCIES
   capybara
   country_select
   debug
-  devise
+  devise (~> 4.9)
   dotenv-rails
   font-awesome-sass (~> 6.0)
   importmap-rails

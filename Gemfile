@@ -70,7 +70,7 @@ gem "sassc-rails"
 
 gem 'font-awesome-sass', '~> 6.0'
 
-gem 'devise'
+gem 'devise', '~> 4.9'
 
 gem 'country_select'
 
