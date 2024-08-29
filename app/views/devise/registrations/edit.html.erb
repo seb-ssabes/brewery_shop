@@ -3,6 +3,6 @@
   <div class="account-details">
     <h3><%= current_user.name %> <%= current_user.last_name %></h3>
     <h3><%= current_user.email %></h3>
-  <%= button_to "LOG OUT", destroy_user_session_path, class:"continue-shopping", method: :delete %>
+  <%= button_to "LOG OUT", destroy_user_session_path, class:"continue-shopping", data: { turbo_confirm: "Are you sure?" }, method: :delete %>
   </div>
 </div>
