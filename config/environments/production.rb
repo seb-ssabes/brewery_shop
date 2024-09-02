@@ -96,4 +96,10 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   config.action_mailer.delivery_method = :letter_opener
+
+  Cloudinary.config_from_url(ENV['CLOUDINARY_URL'])
+
+  Cloudinary.config do |config|
+    config.secure = true
+  end
 end
