@@ -82,3 +82,5 @@ gem "stripe", "~> 12.0"
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem "pg", "~> 1.4"
+
+gem "cloudinary"
