@@ -2,7 +2,7 @@
   <div class="header-header">
     <div class="header-image-nav">
       <%= link_to root_path, class: "logo-link" do %>
-        <img src="<%= asset_path('Brewery Logo.png') %>" class="header-image">
+        <%= cl_image_tag "brewery_shop/Brewery_Logo", class: "header-image" %>
       <% end %>
       <nav class="header-nav">
         <ul class="nav-links">

@@ -3,7 +3,9 @@
 <div class="checkout-container">
   <div class="banner-checkout" >
     <div class="hidden-div"></div>
-    <div class="image-container"><img src="<%= asset_path('Brewery Logo.png') %>" class="checkout-image"></div>
+    <div class="image-container">
+      <%= cl_image_tag "brewery_shop/Brewery_Logo", class: "checkout-image" %>
+    </div>
     <div class="checkout-shopping">
       <%= link_to cart_path(current_cart), class: "checkout-icon" do %>
         <i class="fa-solid fa-bag-shopping"></i>
