@@ -106,9 +106,4 @@ Rails.application.configure do
     config.api_secret = ENV['CLOUDINARY_API_SECRET']
     config.secure = true
   end
-
-  Rails.application.configure do
-    config.stripe.secret_key = ENV['STRIPE_SECRET_KEY']
-    config.stripe.publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
-  end
 end
