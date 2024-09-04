@@ -106,6 +106,4 @@ Rails.application.configure do
     config.api_secret = ENV['CLOUDINARY_API_SECRET']
     config.secure = true
   end
-
-  Stripe.api_key(ENV['STRIPE_API_KEY'])
 end
