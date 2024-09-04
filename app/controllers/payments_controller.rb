@@ -46,6 +46,8 @@ class PaymentsController < ApplicationController
   end
 
   def set_ckeckout_session
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    
     if current_user
       payment_processor = current_user.set_payment_processor(:stripe)
       @checkout_session = payment_processor.checkout(**stripe_session_args(true))
