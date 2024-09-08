@@ -4,11 +4,13 @@
   <div class="banner-checkout" >
     <div class="hidden-div"></div>
     <div class="image-container">
-      <%= cl_image_tag "brewery_shop/Brewery_Logo", class: "checkout-image" %>
+      <%= link_to root_path, class: "logo-link" do %>
+        <%= cl_image_tag "brewery_shop/Brewery_Logo", class: "header-image" %>
+      <% end %>
     </div>
     <div class="checkout-shopping">
       <%= link_to cart_path(current_cart), class: "checkout-icon" do %>
-        <i class="fa-solid fa-bag-shopping"></i>
+        <i class="fa-solid fa-bag-shopping me-1"></i>
       <% end %>
     </div>
   </div>
@@ -31,7 +33,7 @@
               </div>
 
               <div class="col-md-12">
-                <%= f.telephone_field :phone, class: "form-control", required: true, placeholder: "Mobile phone (optional)" %>
+                <%= f.telephone_field :phone, class: "form-control", placeholder: "Mobile phone (optional)" %>
               </div>
             </div>
 
