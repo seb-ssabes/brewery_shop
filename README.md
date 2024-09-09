@@ -25,6 +25,8 @@ Thank you for checking out the Brewery Shop! I hope you enjoy exploring the site
 
 # ![Screenshot 2024-09-09 at 11 49 58](https://github.com/user-attachments/assets/2277aca2-1fa0-48d0-b1b6-a37cbf2d7d92)
 
+# ![Screenshot 2024-09-09 at 13 37 42](https://github.com/user-attachments/assets/9cfda00e-2418-4776-ac27-ee2c3cb6bc53)
+
 # ![Screenshot 2024-09-09 at 11 52 03](https://github.com/user-attachments/assets/1fbcfe00-36ad-4a47-ac43-99c71a4bada3)
 
 # ![Screenshot 2024-09-09 at 11 54 15](https://github.com/user-attachments/assets/3cfeec12-8a69-49bb-a0ef-3884c53359e8)
