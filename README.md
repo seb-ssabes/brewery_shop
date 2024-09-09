@@ -26,4 +26,6 @@ Feel free to use the following Stripe Test Card details for a simulated transact
 - Expiration Date: Any future date
 - CVC: Any three digits
 
+The project is hosted on the free tier of Render.com, providing reliable hosting for the Brewery Shop.
+
 Thank you for checking out the Brewery Shop! I hope you enjoy exploring the site and testing its features.
