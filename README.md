@@ -9,26 +9,21 @@
 # ![Screenshot 2024-09-09 at 11 54 35](https://github.com/user-attachments/assets/9b8fb292-5b5c-4744-87c6-957b3b3b2869)
 
 
+# Introduction
+Welcome to my first solo project: The Brewing Company Online Shop! 🍻
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This online shop is designed for a fictitious brewery, where you can explore and learn about the diverse range of beers available on tap. As a user, you'll have the ability to:
 
-Things you may want to cover:
+- Browse Beers: Discover the different beers and their details.
+- Manage Your Beer Crate: Add beers to your crate, update quantities, and remove items as needed.
+- Checkout: Purchase your selected beers using a seamless checkout process.
 
-* Ruby version
+I've integrated the Stripe framework for the checkout process. Currently, it's in test mode, allowing you to experience the full user journey without any real transactions. You can create an account or proceed as a guest user to complete your purchase during testing.
 
-* System dependencies
+Feel free to use the following Stripe Test Card details for a simulated transaction:
 
-* Configuration
+- Card Number: 4242 4242 4242 4242
+- Expiration Date: Any future date
+- CVC: Any three digits
 
-
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Thank you for checking out the Brewery Shop! I hope you enjoy exploring the site and testing its features.
