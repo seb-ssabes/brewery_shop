@@ -1,4 +1,6 @@
-# The Brewing Company Online Shop
+<h1 align="center">
+  The Brewing Company Online Shop
+</h1>
 
 # Introduction
 Welcome to my first solo project: The Brewing Company Online Shop! 🍻
