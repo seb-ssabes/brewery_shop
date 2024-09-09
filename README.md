@@ -12,7 +12,7 @@
 # Introduction
 Welcome to my first solo project: The Brewing Company Online Shop! 🍻
 
-This online shop is designed for a fictitious brewery, where you can explore and learn about the diverse range of beers available on tap. As a user, you'll have the ability to:
+This online shop is designed for a fictitious brewery located in Barleytown, Hopsburg. Where you can explore and learn about the diverse range of beers available on tap. As a user, you'll have the ability to:
 
 - Browse Beers: Discover the different beers and their details.
 - Manage Your Beer Crate: Add beers to your crate, update quantities, and remove items as needed.
