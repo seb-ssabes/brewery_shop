@@ -63,7 +63,6 @@ class PaymentsController < ApplicationController
     Rails.logger.debug { "Checkout Session: #{@checkout_session.inspect}" }
   rescue => e
     Rails.logger.error "Error in creating checkout session: #{e.message}"
-    flash[:alert] = "There was a problem processing your payment."
     redirect_to root_url
   end
 
@@ -94,7 +93,10 @@ class PaymentsController < ApplicationController
       mode: :payment,
       ui_mode: :embedded,
       line_items: line_items,
-      metadata: {order_id: @order.id},
+      metadata: {
+        order_id: @order.id,
+        session_id: session.id
+      },
       return_url: success_payment_payments_url
     }
 
