@@ -5,19 +5,19 @@ Welcome to my first solo project: The Brewing Company Online Shop! 🍻
 
 This online shop is designed for a fictitious brewery located in Barleytown, Hopsburg. Where you can explore and learn about the diverse range of beers available on tap. As a user, you'll have the ability to:
 
-- Browse Beers: Discover the different beers and their details.
-- Manage Your Beer Crate: Add beers to your crate, update quantities, and remove items as needed.
-- Checkout: Purchase your selected beers using a seamless checkout process.
+- **Browse Beers**: Discover the different beers and their details.
+- **Manage Your Beer Crate**: Add beers to your crate, update quantities, and remove items as needed.
+- **Checkout**: Purchase your selected beers using a seamless checkout process.
 
-I've integrated the Stripe framework for the checkout process. Currently, it's in test mode, allowing you to experience the full user journey without any real transactions. You can create an account or proceed as a guest user to complete your purchase during testing.
+I've integrated the **Stripe** framework for the checkout process. Currently, it's in test mode, allowing you to experience the full user journey without any real transactions. You can create an account or proceed as a guest user to complete your purchase during testing.
 
 Feel free to use the following Stripe Test Card details for a simulated transaction:
 
-- Card Number: 4242 4242 4242 4242
-- Expiration Date: Any future date
-- CVC: Any three digits
+- **Card Number**: 4242 4242 4242 4242
+- **Expiration Date**: Any future date
+- **CVC**: Any three digits
 
-The project is hosted on the free tier of Render.com, providing reliable hosting for the Brewery Shop.
+The project is hosted on the free tier of **Render.com**, providing reliable hosting for the Brewery Shop.
 
 Thank you for checking out the Brewery Shop! I hope you enjoy exploring the site and testing its features.
 
