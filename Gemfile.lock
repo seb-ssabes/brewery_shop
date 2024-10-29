@@ -208,7 +208,6 @@ GEM
     orm_adapter (0.5.0)
     pay (7.3.0)
       rails (>= 6.0.0)
-    pg (1.5.9)
     popper_js (2.11.8)
     psych (5.1.2)
       stringio
@@ -345,7 +344,6 @@ DEPENDENCIES
   jbuilder
   letter_opener
   pay (~> 7.0)
-  pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)
   sassc-rails
