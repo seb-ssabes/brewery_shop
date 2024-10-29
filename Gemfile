@@ -84,3 +84,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem "cloudinary"
 
 gem 'sqlite3', '~> 1.4', group: [:development, :test, :production]
+
+gem 'pg', '~> 1.1'
