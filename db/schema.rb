@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "beers", force: :cascade do |t|
     t.string "title"
     t.decimal "price", precision: 8, scale: 2
@@ -28,8 +25,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.bigint "cart_id", null: false
-    t.bigint "beer_id", null: false
+    t.integer "cart_id", null: false
+    t.integer "beer_id", null: false
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,7 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "active", default: true
@@ -54,8 +51,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "beer_id", null: false
+    t.integer "order_id", null: false
+    t.integer "beer_id", null: false
     t.integer "quantity"
     t.decimal "price"
     t.datetime "created_at", null: false
@@ -65,7 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.string "status"
     t.decimal "total_price"
     t.datetime "created_at", null: false
@@ -79,7 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
     t.string "city"
     t.string "post_code"
     t.string "region"
-    t.bigint "shipping_method_id", null: false
+    t.integer "shipping_method_id", null: false
     t.index ["shipping_method_id"], name: "index_orders_on_shipping_method_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -92,8 +89,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
     t.string "currency"
     t.integer "application_fee_amount"
     t.integer "amount_refunded"
-    t.jsonb "metadata"
-    t.jsonb "data"
+    t.json "metadata"
+    t.json "data"
     t.string "stripe_account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -107,7 +104,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
     t.string "processor", null: false
     t.string "processor_id"
     t.boolean "default"
-    t.jsonb "data"
+    t.json "data"
     t.string "stripe_account"
     t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
@@ -122,7 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
     t.string "processor", null: false
     t.string "processor_id"
     t.boolean "default"
-    t.jsonb "data"
+    t.json "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "processor"], name: "index_pay_merchants_on_owner_type_and_owner_id_and_processor"
@@ -133,7 +130,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
     t.string "processor_id", null: false
     t.boolean "default"
     t.string "type"
-    t.jsonb "data"
+    t.json "data"
     t.string "stripe_account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -156,8 +153,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
     t.datetime "pause_starts_at", precision: nil
     t.datetime "pause_resumes_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
-    t.jsonb "metadata"
-    t.jsonb "data"
+    t.json "metadata"
+    t.json "data"
     t.string "stripe_account"
     t.string "payment_method_id"
     t.datetime "created_at", null: false
@@ -170,7 +167,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_124142) do
   create_table "pay_webhooks", force: :cascade do |t|
     t.string "processor"
     t.string "event_type"
-    t.jsonb "event"
+    t.json "event"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

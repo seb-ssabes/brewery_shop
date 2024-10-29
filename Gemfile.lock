@@ -208,7 +208,6 @@ GEM
     orm_adapter (0.5.0)
     pay (7.3.0)
       rails (>= 6.0.0)
-    pg (1.5.7)
     popper_js (2.11.8)
     psych (5.1.2)
       stringio
@@ -285,6 +284,12 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
+    sqlite3 (1.7.3-aarch64-linux)
+    sqlite3 (1.7.3-arm-linux)
+    sqlite3 (1.7.3-arm64-darwin)
+    sqlite3 (1.7.3-x86-linux)
+    sqlite3 (1.7.3-x86_64-darwin)
+    sqlite3 (1.7.3-x86_64-linux)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
     stringio (3.1.0)
@@ -339,12 +344,12 @@ DEPENDENCIES
   jbuilder
   letter_opener
   pay (~> 7.0)
-  pg (~> 1.4)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)
   sassc-rails
   selenium-webdriver
   sprockets-rails
+  sqlite3 (~> 1.4)
   stimulus-rails
   stripe (~> 12.0)
   turbo-rails
