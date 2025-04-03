@@ -3,7 +3,9 @@
 </h1>
 
 # Important Note
-This project is hosted on Render.com's free tier, which means the server goes to sleep after periods of inactivity. As a result, the initial response may take up to 1 minute while the instance spins back up. Once running, the app performs normally. In other words, please be patient the first time you visit this link: [https://brewery-shop.onrender.com/](url)
+This project is hosted on Render.com's free tier, which means the server goes to sleep after periods of inactivity. As a result, the initial response may take up to 1 minute while the instance spins back up. Once running, the app performs normally. In other words, please be patient the first time you visit this link: 
+
+[https://brewery-shop.onrender.com/](url)
 
 # Introduction
 Welcome to my first solo project: The Brewing Company Online Shop! 🍻
