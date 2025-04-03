@@ -2,6 +2,9 @@
   The Brewing Company Online Shop
 </h1>
 
+# Important Note
+This project is hosted on Render.com's free tier, which means the server goes to sleep after periods of inactivity. As a result, the initial response may take up to 1 minute while the instance spins back up. Once running, the app performs normally. In other words, please be patient the first time you visit this link: [https://brewery-shop.onrender.com/](url)
+
 # Introduction
 Welcome to my first solo project: The Brewing Company Online Shop! 🍻
 
@@ -10,8 +13,6 @@ This online shop is designed for a fictitious brewery located in Barleytown, Hop
 - **Browse Beers**: Discover the different beers and their details.
 - **Manage Your Beer Crate**: Add beers to your crate, update quantities, and remove items as needed.
 - **Checkout**: Purchase your selected beers using a seamless checkout process.
-
-**NOTE:** This project is hosted on Render.com's free tier, which means the server goes to sleep after periods of inactivity. As a result, the initial response may take **up to 1 minute** while the instance spins back up. Once running, the app performs normally.
 
 I've integrated the **Stripe** framework for the checkout process. Currently, it's in test mode, allowing you to experience the full user journey without any real transactions. You can create an account or proceed as a guest user to complete your purchase during testing.
 
