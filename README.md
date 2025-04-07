@@ -2,6 +2,13 @@
   The Brewing Company Online Shop
 </h1>
 
+# Important Note
+This project is hosted on Render.com's free tier, which means the server goes to sleep after periods of inactivity. As a result, the initial response may take **up to 1 minute** while the instance spins back up. Once running, the app performs normally. In other words, please be patient the first time you visit this link: 
+
+[https://brewery-shop.onrender.com/](url)
+
+If the hyperlink doesn't work, please try copy-pasting the link into your browser.
+
 # Introduction
 Welcome to my first solo project: The Brewing Company Online Shop! 🍻
 
@@ -18,8 +25,6 @@ Feel free to use the following Stripe Test Card details for a simulated transact
 - **Card Number**: 4242 4242 4242 4242
 - **Expiration Date**: Any future date
 - **CVC**: Any three digits
-
-The project is hosted on the free tier of **Render.com**, providing reliable hosting for the Brewery Shop.
 
 Thank you for checking out the Brewery Shop! I hope you enjoy exploring the site and testing its features.
 
