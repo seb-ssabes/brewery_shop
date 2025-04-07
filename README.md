@@ -7,6 +7,8 @@ This project is hosted on Render.com's free tier, which means the server goes to
 
 [https://brewery-shop.onrender.com/](url)
 
+If the hyperlink doesn't work, please try copy-pasting the link into your browser.
+
 # Introduction
 Welcome to my first solo project: The Brewing Company Online Shop! 🍻
 
